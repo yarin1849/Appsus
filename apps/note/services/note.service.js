@@ -66,9 +66,10 @@ function _createNotes() {
                 type: 'NoteTxt',
                 isPinned: true,
                 style: {
-                    backgroundColor: '#00d'
+                    backgroundColor: '#ffffff'
                 },
                 info: {
+                    title: 'start',
                     txt: 'Fullstack Me Baby!'
                 }
             },
@@ -78,10 +79,11 @@ function _createNotes() {
                 type: 'NoteTxt',
                 isPinned: true,
                 style: {
-                    backgroundColor: '#00d'
+                    backgroundColor: '#ffffff'
                 },
                 info: {
-                    txt: 'Wowwwwwwwwwwwwww'
+                    title: 'wow',
+                    txt: 'Wowwwwwwwwwwwwwwfjslfjswgag;gw;grew cvmkdslcmkdsmclsdkmcdsmckldskl'
                 }
             },
             {
@@ -90,9 +92,10 @@ function _createNotes() {
                 type: 'NoteTxt',
                 isPinned: true,
                 style: {
-                    backgroundColor: '#00d'
+                    backgroundColor: '#ffffff'
                 },
                 info: {
+                    title: 'bogi gogi',
                     txt: 'How you doing'
                 }
             },
@@ -106,12 +109,12 @@ function _createNotes() {
             //         title: 'Bobi and Me'
             //     },
             //     style: {
-            //         backgroundColor: '#00d'
+            //         backgroundColor: 'blue'
             //     }
             // },
             // {
             //     id: 'n103',
-            //     createdAt: 1112224,
+            //     createdAt: 1112111,
             //     type: 'NoteTodos',
             //     isPinned: false,
             //     info: {

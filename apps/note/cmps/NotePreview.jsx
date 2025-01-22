@@ -1,6 +1,10 @@
 
 export function NotePreview({ note }) {
     return (
-        <h1>{note.info.txt}</h1>
+        <section>
+            <h1>title: {note.info.title}</h1>
+            <h2>{note.info.txt}</h2>
+
+        </section>
     )
 }

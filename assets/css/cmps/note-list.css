@@ -1,0 +1,38 @@
+.note-list {
+    list-style: none;
+    padding: 15px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 238px);
+    grid-auto-flow: column;
+    gap: 4px;
+    justify-content: center;
+}
+
+
+.note-list li {
+    text-align: start;
+    min-height: 50px; 
+    padding: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: left;
+    border-radius: 8px;
+    border: 1px solid #202124;
+}
+
+.note-list li h1{
+    font-family: roboto;
+    font-size: 16px;
+    letter-spacing: 0.1px;
+    line-height: 24px;
+    color: #202124;
+    text-align: start;
+}
+
+.note-list li h2{
+    font-size: 15px;
+    letter-spacing: normal;
+    line-height: normal;
+    color: #202124;
+    text-align: start;
+}
