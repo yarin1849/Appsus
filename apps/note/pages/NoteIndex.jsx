@@ -1,9 +1,9 @@
 import { noteService } from "../services/note.service.js"
 
-const {useSatate, useEffect} = React
+const {useState, useEffect} = React
 
 export function NoteIndex() {
-    const [notes, setNotes] = useSatate(null)
+    const [notes, setNotes] = useState(null)
 
     useEffect( () => {
         loadNotes()
