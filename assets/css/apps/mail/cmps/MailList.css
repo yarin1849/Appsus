@@ -1,1 +1,26 @@
- /* mail list */
+ .mail-list {
+     list-style: none;
+     background-color: #fff;
+     color: #202124;
+     margin: 0;
+     padding: 0;
+     width: 100%;
+     line-height: normal;
+     text-align: start;
+     letter-spacing: normal;
+     font-size: 14px;
+ }
+
+ .mail-list li {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 10px 15px;
+     border-bottom: 1px solid #ddd;
+     transition: background-color 0.2s;
+     cursor: pointer;
+ }
+
+ .mail-list li:hover {
+     box-shadow: rgba(100, 121, 143, 0.12) 0px -1px 0px 0px inset
+ }

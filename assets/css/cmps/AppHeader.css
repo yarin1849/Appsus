@@ -1,5 +1,5 @@
 header {
-    background: lightcyan;
+    background: #f6f8fc;
     border-bottom: 2px solid white;
 }
 
@@ -7,6 +7,10 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 20px 0;
+}
+
+.app-header .gmail {
+    background: #f6f8fc
 }
 
 nav a {

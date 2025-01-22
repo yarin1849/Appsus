@@ -15,12 +15,12 @@ export function NoteIndex() {
             .then(setNotes)
     }
 
-    
+
 
     if (!notes) return <div>Loading....</div>
     return (
         <section className="note-index">
-            <NoteList notes={notes}/>
+            <NoteList notes={notes} />
         </section>
     )
 }

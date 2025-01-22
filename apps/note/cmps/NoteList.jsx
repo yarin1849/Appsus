@@ -1,14 +1,14 @@
 
-import {NotePreview} from './NotePreview.jsx'
+import { NotePreview } from './NotePreview.jsx'
 
-export function NoteList({notes}) {
+export function NoteList({ notes }) {
     console.log(notes)
     return (
         <ul className="note-list">
-            {notes.map(note => 
+            {notes.map(note =>
                 // {console.log(note)}
                 <li key={note.id}>
-                    <NotePreview note={note}/>
+                    <NotePreview note={note} />
                 </li>
             )}
         </ul>
