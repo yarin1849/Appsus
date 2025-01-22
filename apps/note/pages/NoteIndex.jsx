@@ -1,21 +1,26 @@
+import { NoteList } from "../cmps/NoteList.jsx"
 import { noteService } from "../services/note.service.js"
 
-const {useState, useEffect} = React
+const { useState, useEffect } = React
 
 export function NoteIndex() {
     const [notes, setNotes] = useState(null)
 
-    useEffect( () => {
+    useEffect(() => {
         loadNotes()
     }, [])
 
     function loadNotes() {
         noteService.query()
-            .then(notes => console.log(notes))
+            .then(setNotes)
     }
 
-
+    
 
     if (!notes) return <div>Loading....</div>
-   
+    return (
+        <section className="note-index">
+            <NoteList notes={notes}/>
+        </section>
+    )
 }
