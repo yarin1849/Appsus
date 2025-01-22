@@ -1,24 +1,27 @@
 header {
-    background: lightcyan;
+    background: #F6F8FC;
     border-bottom: 2px solid white;
 }
-
 .app-header {
     display: flex;
     justify-content: space-between;
     padding: 20px 0;
 }
-
+.app-header .gmail {
+    background: #F6F8FC
+}
 nav a {
     margin: .5em;
 }
-
 nav a:active {
     color: purple;
 }
-
 nav a.active {
     color: darkblue;
     font-weight: bold;
     text-decoration: overline;
+}
+
+img {
+    width: 5%;
 }

@@ -1,10 +1,11 @@
-const { Link, NavLink } = ReactRouterDOM
+const { Link, NavLink, useParams } = ReactRouterDOM
+
 
 export function AppHeader() {
-
+    
     return <header className="app-header">
         <Link to="/">
-            <h3>LOGO!</h3>
+        <img src={`../assets/img/google.png`} alt="" />
         </Link>
         <nav>
             <NavLink to="/">Home</NavLink>

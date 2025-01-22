@@ -1,4 +1,4 @@
-const { Route, Routes } = ReactRouterDOM
+const { Route, Routes, useParams } = ReactRouterDOM
 const Router = ReactRouterDOM.HashRouter
 
 import { AppHeader } from "./cmps/AppHeader.jsx"
@@ -12,12 +12,12 @@ import { NoteIndex } from "./apps/note/pages/NoteIndex.jsx"
 export function App() {
     return <Router>
         <section className="app">
-            <AppHeader />
+            <AppHeader/>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/mail" element={<MailIndex />} />
-                <Route path="/note" element={<NoteIndex />} />
+                <Route path="/about/" element={<About />} />
+                <Route path="/mail/" element={<MailIndex />} />
+                <Route path="/note/" element={<NoteIndex />} />
             </Routes>
         </section>
     </Router>

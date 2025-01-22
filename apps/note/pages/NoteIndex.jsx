@@ -1,3 +1,4 @@
+import { AppHeader } from "../../../cmps/AppHeader.jsx"
 import { NoteList } from "../cmps/NoteList.jsx"
 import { noteService } from "../services/note.service.js"
 
