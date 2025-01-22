@@ -15,5 +15,7 @@ export function NoteIndex() {
     }
 
 
-    return <div>note app</div>
+
+    if (!notes) return <div>Loading....</div>
+   
 }
