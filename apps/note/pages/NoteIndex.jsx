@@ -27,10 +27,16 @@ export function NoteIndex() {
                 showErrorMsg(`Problems removing note (${noteId})`)})
     }
 
+    function onSetSave(note) {
+        console.log('note', note)
+        noteService.save(note)
+            .then(loadNotes)
+    }
+
     if (!notes) return <div>Loading....</div>
     return (
         <section className="note-index">
-            <EditNote />
+            <EditNote onSetSave={onSetSave}/>
             <NoteList notes={notes} onRemoveNote={onRemoveNote}/>
         </section>
     )

@@ -45,7 +45,7 @@ function save(note) {
     }
 }
 
-function getEmptyNote(createAt = '', type = '', isPinned = false, style = {}, info = {title: '', txt: ''}) {
+function getEmptyNote(createAt = Date.now(), type = 'NoteTxt', isPinned = false, style = {backgroundColor: '#ffffff'}, info = {title: '', txt: ''}) {
     return { createAt, type, isPinned, style, info }
 }
 
@@ -131,7 +131,7 @@ function _createNotes() {
 
 function _createNote(info) {
     const note = getEmptyNote(info)
-    note.id = makeId()
+    note.id = utilService.makeId()
     return note
 }
 
