@@ -1,5 +1,6 @@
-import { loadFromStorage, makeId, saveToStorage } from '../../../services/util.service.js'
-import { storageService } from '../../../services/async-storage.service.js'
+import { makeId } from '../../../services/util.service.js'
+import { storageService } from '../../../services/storage.service.js'
+import { storageServiceAsync } from '../../../services/async-storage.service.js'
 
 const NOTE_KEY = 'noteDB'
 _createNotes()
@@ -16,7 +17,7 @@ export const noteService = {
 }
 
 function query(filterBy = {}) {
-    return storageService.query(NOTE_KEY)
+    return storageServiceAsync.query(NOTE_KEY)
         .then(notes => {
             if (filterBy.txt) {
                 const regExp = new RegExp(filterBy.txt, 'i')
@@ -28,20 +29,20 @@ function query(filterBy = {}) {
 }
 
 function get(noteId) {
-    return storageService.get(NOTE_KEY, noteId)
+    return storageServiceAsync.get(NOTE_KEY, noteId)
         .then(note => _setNextPrevNoteId(note))
 }
 
 function remove(noteId) {
     // return Promise.reject('Oh No!')
-    return storageService.remove(NOTE_KEY, noteId)
+    return storageServiceAsync.remove(NOTE_KEY, noteId)
 }
 
 function save(note) {
     if (note.id) {
-        return storageService.put(NOTE_KEY, note)
+        return storageServiceAsync.put(NOTE_KEY, note)
     } else {
-        return storageService.post(NOTE_KEY, note)
+        return storageServiceAsync.post(NOTE_KEY, note)
     }
 }
 
@@ -56,7 +57,7 @@ function getDefaultFilter() {
 }
 
 function _createNotes() {
-    let notes = loadFromStorage(NOTE_KEY)
+    let notes = storageService.loadFromStorage(NOTE_KEY)
     if (!notes || !notes.length) {
         notes = [
             {
@@ -98,7 +99,7 @@ function _createNotes() {
                 }
             }
         ]
-        saveToStorage(NOTE_KEY, notes)
+        storageService.saveToStorage(NOTE_KEY, notes)
     }
 }
 
