@@ -1,3 +1,8 @@
+import { mailService } from "../services/mail.service.js"
+
+const { useEffect, useState } = React
+const { useParams } = ReactRouterDOM
+
 
 
 export function MailDetails() {
@@ -7,6 +12,7 @@ export function MailDetails() {
 
     useEffect(() => {
         loadMail()
+
     }, [params.mailId])
 
     function loadMail() {
@@ -28,7 +34,12 @@ export function MailDetails() {
 
 
 
-
-    return (<div>Mail Details</div>)
+    if (!mail) return <div>Loading...</div>
+    return (
+        <div className="mail-details">
+            <h1>{mail.subject}</h1>
+            <h2>{mail.body}</h2>
+        </div >
+    )
 }
 

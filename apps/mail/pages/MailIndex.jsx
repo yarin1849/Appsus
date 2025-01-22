@@ -8,10 +8,6 @@ export function MailIndex() {
     const [mails, setMails] = useState(null)
     const [isRead, setIsRead] = useState({})
 
-    // setIsRead(
-
-    // )
-
     useEffect(() => {
         loadMails()
     }, [])
