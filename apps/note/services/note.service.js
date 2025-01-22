@@ -30,7 +30,6 @@ function query(filterBy = {}) {
 
 function get(noteId) {
     return storageServiceAsync.get(NOTE_KEY, noteId)
-        .then(note => _setNextPrevNoteId(note))
 }
 
 function remove(noteId) {
@@ -46,7 +45,7 @@ function save(note) {
     }
 }
 
-function getEmptyNote(createAt = '', type = '', isPinned = false, style = {}, info = {}) {
+function getEmptyNote(createAt = '', type = '', isPinned = false, style = {}, info = {title: '', txt: ''}) {
     return { createAt, type, isPinned, style, info }
 }
 
