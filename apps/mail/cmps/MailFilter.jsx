@@ -1,4 +1,6 @@
 import { debounce } from "../../../services/util.service.js"
+import { MailMenuFilter } from "./MailMenuFilter.jsx"
+
 
 const { useState, useEffect, useRef } = React
 
@@ -9,7 +11,6 @@ export function MailFilter({ filterBy, onSetFilterBy }) {
 
     useEffect(() => {
         onSetFilterByDebounce(filterByToEdit)
-        console.log('filterByToEdit', filterByToEdit)
     }, [filterByToEdit])
 
     function handleChange({ target }) {
@@ -40,9 +41,10 @@ export function MailFilter({ filterBy, onSetFilterBy }) {
 
     return (
         <section className="mail-filter">
+            {/* <MailMenuFilter onSetFilterBy={onSetFilterBy} /> */}
             <h2>Filter Mails</h2>
             <form onSubmit={onSubmit}>
-                <input value={txt} onChange={handleChange} type="text" name="txt" id="txt" placeholder="Search" />
+                <input value={txt} onChange={handleChange} type="text" name="txt" placeholder="Search" />
                 <button>Search</button>
             </form>
         </section>

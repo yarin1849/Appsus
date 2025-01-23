@@ -3,6 +3,7 @@ import { showErrorMsg, showSuccessMsg } from "../../../services/event-bus.servic
 import { MailList } from "../cmps/MailList.jsx"
 import { MailCompose } from "../cmps/MailCompose.jsx"
 import { MailFilter } from "../cmps/MailFilter.jsx"
+import { MailMenuFilter } from "../cmps/MailMenuFilter.jsx"
 
 const { useSearchParams, Routes, Route, Navigate } = ReactRouterDOM
 const { useState, useEffect } = React
@@ -71,23 +72,27 @@ export function MailIndex() {
         setIsComposeOpen(false)
     }
 
-    function onSetFilterBy(filterBy) {
-        setFilterBy(preFilter => ({ ...preFilter, ...filterBy }))
+    function onSetFilterBy(newFilter) {
+        setFilterBy((prevFilter) => ({ ...prevFilter, ...newFilter }));
     }
+
 
     if (!mails) return <h1>Loading...</h1>
     return (
         <section className="mail-index">
             <header>
                 <section>
-                    <MailFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
+                    <section className="mail-search-filter">
+                        <MailFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
+                    </section>
+                    <section className="mail-menu-filter">
+                        <button><img src="./assets/img/icons8-menu.svg" alt="" /></button>
+                        <MailMenuFilter isMenuOpen={true} onSetFilterBy={onSetFilterBy} activeFolder={filterBy.folder} unreadCount={unreadCount} />
+                    </section>
                 </section>
-                <h1>Unread Mails: {unreadCount}</h1>
             </header>
             <MailList mails={mails} handleIsRead={handleIsRead}
                 onRemoveMail={onRemoveMail} />
-            <button onClick={openCompose}>+</button>
-            <MailCompose isOpen={isComposeOpen} onClose={closeCompose} />
 
         </section>
     )

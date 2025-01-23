@@ -25,8 +25,10 @@
 @import url(./cmps/note-edit.css);
 @import './cmps/UserMsg.css';
 @import './cmps/AppHeader.css';
-
+@import './apps/mail/pages/MailIndex.css';
 @import './apps/mail/cmps/MailList.css';
 @import './apps/mail/cmps/MailPreview.css';
 @import './apps/mail/cmps/MailCompose.css';
+@import './apps/mail/cmps/MailMenuFilter.css';
+@import './apps/mail/cmps/MailSearchFilter.css';
 /* @import './cmps/MailList.css'; */
