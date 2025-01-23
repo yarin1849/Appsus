@@ -8,6 +8,15 @@ const { useState, useEffect } = React
 
 export function NoteIndex() {
     const [notes, setNotes] = useState(null)
+    const [isOpen, setIsOpen] = useState(false)
+    
+    function onToggleModal() {
+        setIsOpen(isOpen => !isOpen)
+    }
+
+    function onCloseModal() {
+        setIsOpen(false)
+    }
 
     useEffect(() => {
         loadNotes()
@@ -35,12 +44,17 @@ export function NoteIndex() {
             .then(loadNotes)
     }
 
+    
+
     if (!notes) return <div>Loading....</div>
     return (
-        <section className="note-index">
-            <NoteHeader />
-            <EditNote onSetSave={onSetSave}/>
-            <NoteList notes={notes} onRemoveNote={onRemoveNote}/>
+        <section className="note-index" onClick={() => isOpen && setIsOpen(false)}>
+            <NoteHeader onCloseModal={onCloseModal} onToggleModal={onToggleModal} isOpen={isOpen}/>
+            <section className="note-edit">
+
+                <EditNote onSetSave={onSetSave} />
+            </section>
+            <NoteList notes={notes} onRemoveNote={onRemoveNote} />
         </section>
     )
 }
