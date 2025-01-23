@@ -42,7 +42,6 @@ export function NoteFilter({ filterBy, onSetFilterBy }) {
         <section className="note-filter">
             <form onSubmit={onSubmit}>
                 <input value={txt} onChange={handleChange} type="text" name="txt" id="txt" placeholder="Search" />
-                <button>Search</button>
             </form>
         </section>
     )

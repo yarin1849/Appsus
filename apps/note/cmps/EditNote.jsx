@@ -104,7 +104,7 @@ export function EditNote({ onSetSave }) {
                 }}
             >
                 <img
-                    src="./assets/img/audi.jpg"
+                    src="./assets/img/icons8-check-box.svg"
                     alt="Add Todo"
                     style={{ width: '20px', height: '20px' }}
                 />
