@@ -45,7 +45,7 @@ function save(note) {
     }
 }
 
-function getEmptyNote(createAt = '', type = '', isPinned = false, style = {}, info = {title: '', txt: ''}) {
+function getEmptyNote(createAt = Date.now(), type = 'NoteTxt', isPinned = false, style = {backgroundColor: '#ffffff'}, info = {title: '', txt: ''}) {
     return { createAt, type, isPinned, style, info }
 }
 
@@ -98,32 +98,32 @@ function _createNotes() {
                     txt: 'How you doing'
                 }
             },
-            // {
-            //     id: 'n102',
-            //     createdAt: 1112223,
-            //     type: 'NoteImg',
-            //     isPinned: false,
-            //     info: {
-            //         url: 'http://some-img/me',
-            //         title: 'Bobi and Me'
-            //     },
-            //     style: {
-            //         backgroundColor: 'blue'
-            //     }
-            // },
-            // {
-            //     id: 'n103',
-            //     createdAt: 1112111,
-            //     type: 'NoteTodos',
-            //     isPinned: false,
-            //     info: {
-            //         title: 'Get my stuff together',
-            //         todos: [
-            //             { txt: 'Driving license', doneAt: null },
-            //             { txt: 'Coding power', doneAt: 187111111 }
-            //         ]
-            //     }
-            // }
+            {
+                id: 'n401',
+                createdAt: 1112223,
+                type: 'NoteImg',
+                isPinned: false,
+                info: {
+                    url: '../../assets/img/mazda.jpg',
+                    title: 'Bobi and Me'
+                },
+                style: {
+                    backgroundColor: '#ffffff'
+                }
+            },
+            {
+                id: 'n501',
+                createdAt: 1112111,
+                type: 'NoteTodos',
+                isPinned: false,
+                info: {
+                    title: 'Get my stuff together',
+                    todos: [
+                        { txt: 'Driving license', doneAt: null },
+                        { txt: 'Coding power', doneAt: 187111111 }
+                    ]
+                }
+            }
         ]
         storageService.saveToStorage(NOTE_KEY, notes)
     }
@@ -131,7 +131,7 @@ function _createNotes() {
 
 function _createNote(info) {
     const note = getEmptyNote(info)
-    note.id = makeId()
+    note.id = utilService.makeId()
     return note
 }
 

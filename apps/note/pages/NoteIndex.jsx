@@ -28,11 +28,17 @@ export function NoteIndex() {
             })
     }
 
+    function onSetSave(note) {
+        console.log('note', note)
+        noteService.save(note)
+            .then(loadNotes)
+    }
+
     if (!notes) return <div>Loading....</div>
     return (
         <section className="note-index">
-            <EditNote />
-            <NoteList notes={notes} onRemoveNote={onRemoveNote} />
+            <EditNote onSetSave={onSetSave}/>
+            <NoteList notes={notes} onRemoveNote={onRemoveNote}/>
         </section>
     )
 }

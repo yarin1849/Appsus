@@ -1,5 +1,7 @@
 
-import { NotePreview } from './NotePreview.jsx'
+import { NotePreviewImg } from './dynamic-previews/NotePreviewImg.jsx'
+import { NotePreviewText } from './dynamic-previews/NotePreviewText.jsx'
+import { NotePreviewTodo } from './dynamic-previews/NotePreviewTodo.jsx'
 
 const { Link } = ReactRouterDOM
 
@@ -7,9 +9,9 @@ export function NoteList({ notes, onRemoveNote }) {
     return (
         <ul className="note-list">
             {notes.map(note =>
-                <li key={note.id} style={{ backgroundColor: note.style.backgroundColor }}>
+                <li key={note.id} style={note.style ? { backgroundColor: note.style.backgroundColor } : { backgroundColor: 'white' }}>
                     <div className="card-content">
-                        <NotePreview note={note} />
+                        <DynamicPreview {...note} />
                         <section className="card-actions">
                             <button onClick={() => onRemoveNote(note.id)}><img src="../../assets/img/delete_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" /></button>
                             <button><Link to={`/note/${note.id}`}><img src="../../assets/img/edit_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.png" /></Link></button>
@@ -19,4 +21,18 @@ export function NoteList({ notes, onRemoveNote }) {
             )}
         </ul>
     )
+}
+
+
+function DynamicPreview(promps) {
+    console.log(promps.type)
+    switch (promps.type) {
+        case 'NoteTxt':
+            return <NotePreviewText note={promps} />
+        case 'NoteImg':
+            return <NotePreviewImg note={promps} />
+        case 'NoteTodos':
+            return <NotePreviewTodo note={promps}/>
+
+    } 
 }
