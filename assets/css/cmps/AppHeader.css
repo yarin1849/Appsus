@@ -28,5 +28,6 @@ nav a.active {
 }
 
 img {
-    width: 5%;
+    width: auto;
+    height: auto;
 }

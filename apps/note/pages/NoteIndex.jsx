@@ -2,6 +2,8 @@ import { NoteList } from "../cmps/NoteList.jsx"
 import { EditNote } from "../cmps/EditNote.jsx"
 import { noteService } from "../services/note.service.js"
 import { showSuccessMsg } from "../../../services/event-bus.service.js"
+import { NoteHeader } from "../cmps/NoteHeader.jsx"
+
 const { useState, useEffect } = React
 
 export function NoteIndex() {
@@ -29,7 +31,6 @@ export function NoteIndex() {
     }
 
     function onSetSave(note) {
-        console.log('note', note)
         noteService.save(note)
             .then(loadNotes)
     }
@@ -37,8 +38,12 @@ export function NoteIndex() {
     if (!notes) return <div>Loading....</div>
     return (
         <section className="note-index">
+            <NoteHeader />
             <EditNote onSetSave={onSetSave}/>
             <NoteList notes={notes} onRemoveNote={onRemoveNote}/>
         </section>
     )
 }
+
+
+

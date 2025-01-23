@@ -1,7 +1,6 @@
 
 
 export function NotePreviewTodo({ note }) {
-    console.log(note)
     return (
         <section>
             <h1>{note.info.title}</h1>

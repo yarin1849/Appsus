@@ -25,7 +25,6 @@ export function NoteList({ notes, onRemoveNote }) {
 
 
 function DynamicPreview(promps) {
-    console.log(promps.type)
     switch (promps.type) {
         case 'NoteTxt':
             return <NotePreviewText note={promps} />

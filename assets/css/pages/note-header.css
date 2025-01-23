@@ -1,0 +1,21 @@
+.note-header {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+}
+
+.note-header .logo {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+}
+
+.note-header button{
+    border: none;
+    border-radius: 50%;
+}
+
+.note-header button:hover{
+    cursor: pointer;
+    background-color: #6c6868;
+}
