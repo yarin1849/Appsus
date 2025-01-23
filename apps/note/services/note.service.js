@@ -45,8 +45,8 @@ function save(note) {
     }
 }
 
-function getEmptyNote(createAt = Date.now(), type = 'NoteTxt', isPinned = false, style = {backgroundColor: '#ffffff'}, info = {title: '', txt: ''}) {
-    return { createAt, type, isPinned, style, info }
+function getEmptyNote(createAt = Date.now(), type = '', isPinned = false, style = { backgroundColor: '#ffffff' }, info = { title: '', txt: '' }, id = '') {
+    return { createAt, type, isPinned, style, info, id }
 }
 
 function getDefaultFilter() {

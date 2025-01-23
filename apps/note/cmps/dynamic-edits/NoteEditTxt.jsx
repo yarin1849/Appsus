@@ -1,9 +1,6 @@
 
 
 export function NoteEditTxt({noteToEdit, onSubmit, onHandleChange}) {
-    console.log('note', noteToEdit)
-    console.log('onsuBmit', onSubmit)
-    console.log('onHandleChange', onHandleChange)
     function onHandleChangeTxt({target}) {
         onHandleChange({target})
     }
@@ -15,8 +12,8 @@ export function NoteEditTxt({noteToEdit, onSubmit, onHandleChange}) {
     return (
         <section className="add-note">
             <form onSubmit={onSubmitTxt}>
-                <input type="text" name="title" id="title" value={noteToEdit.info.title} onChange={onHandleChangeTxt} />
-                <input type="text" name="txt" id="txt" value={noteToEdit.info.txt} onChange={onHandleChangeTxt} />
+                <input type="text" name="title" id="title" value={noteToEdit.info.title} onChange={onHandleChangeTxt} placeholder='title'/>
+                <input type="text" name="txt" id="txt" value={noteToEdit.info.txt} onChange={onHandleChangeTxt} placeholder='txt'/>
                 <button>save</button>
             </form>
         </section>
