@@ -1,7 +1,8 @@
 import { mailService } from "../services/mail.service.js"
 
 const { useEffect, useState } = React
-const { useParams } = ReactRouterDOM
+const { useParams, useNavigate, Link } = ReactRouterDOM
+
 
 
 
@@ -25,11 +26,6 @@ export function MailDetails() {
             })
     }
 
-    function onBack() {
-        navigate('/mail')
-    }
-
-
 
 
 
@@ -39,7 +35,8 @@ export function MailDetails() {
         <div className="mail-details">
             <h1>{mail.subject}</h1>
             <h2>{mail.body}</h2>
-        </div >
+            <button><Link to={`/mail/`}>back</Link></button>
+        </div>
     )
 }
 

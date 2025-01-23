@@ -47,8 +47,19 @@ function save(mail) {
     }
 }
 
-function getEmptyMail(subject = '', body = '', isRead = false) {
-    return { subject, body, isRead }
+function getEmptyMail(subject = '', body = '', isRead = false, from = '', to = '') {
+    const now = Date.now();
+    return {
+        id: utilService.makeId(),
+        createdAt: now,
+        sentAt: now,
+        subject,
+        body,
+        isRead,
+        removedAt: null,
+        from,
+        to
+    };
 }
 
 function getDefaultFilter() {
@@ -56,41 +67,38 @@ function getDefaultFilter() {
         subject: '',
         body: '',
         isRead: false
-    }
+    };
 }
 
 function _createMails() {
-    let mails = storageService.loadFromStorage(MAIL_KEY)
+    let mails = storageService.loadFromStorage(MAIL_KEY);
     if (!mails || !mails.length) {
         mails = [
-            _createMail('greetings', 'How have you been?', false),
-            _createMail('reminder', 'Don’t forget the meeting tomorrow!', false),
-            _createMail('updates', 'Here are the latest updates from the team.', false),
-            _createMail('offer', 'Congratulations! You’ve won a special prize!', false)
-
-        ]
-        storageService.saveToStorage(MAIL_KEY, mails)
+            _createMail('greetings', 'How have you been?', false, 'friend@example.com', 'user@appsus.com'),
+            _createMail('reminder', 'Don’t forget the meeting tomorrow!', false, 'boss@example.com', 'user@appsus.com'),
+            _createMail('updates', 'Here are the latest updates from the team.', false, 'team@example.com', 'user@appsus.com'),
+            _createMail('offer', 'Congratulations! You’ve won a special prize!', false, 'promo@example.com', 'user@appsus.com')
+        ];
+        storageService.saveToStorage(MAIL_KEY, mails);
     }
 }
 
-function _createMail(subject = 'Hi', body = 'Hello There', isRead = false) {
-    const mail = getEmptyMail(subject, body, isRead)
-    mail.id = utilService.makeId()
-    return mail
+function _createMail(subject = 'Hi', body = 'Hello There', isRead = false, from = 'no-reply@example.com', to = 'user@appsus.com') {
+    const mail = getEmptyMail(subject, body, isRead, from, to);
+    return mail;
 }
 
-
-
 function getFilterFromSearchParams(searchParams) {
-    const subject = searchParams.get('txt') || ''
-    const body = searchParams.get('txt') || ''
-    const isRead = searchParams.get('isRead') || ''
+    const subject = searchParams.get('txt') || '';
+    const body = searchParams.get('txt') || '';
+    const isRead = searchParams.get('isRead') === 'true'; // Convert to boolean
     return {
         subject,
         body,
         isRead
-    }
+    };
 }
+
 
 
 function _setNextPrevMailId(mail) {
