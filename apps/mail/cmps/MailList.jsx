@@ -11,7 +11,7 @@ export function MailList({ mails, isRead, handleIsRead, onRemoveMail }) {
                     onClick={() => handleIsRead(mail.id)}
                 >
                     <MailPreview mail={mail} />
-                    <section>
+                    <section className="mail-buttons">
                         <button onClick={() => onRemoveMail(mail.id)}>Delete</button>
                     </section>
                 </li>

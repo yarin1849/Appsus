@@ -19,13 +19,17 @@ export const mailService = {
 function query(filterBy = {}) {
     return storageServiceAsync.query(MAIL_KEY)
         .then(mails => {
-            // if (filterBy.txt) {
-            //     const regExp = new RegExp(filterBy.txt, 'i')
-            //     mails = mails.filter(mail => regExp.test(mail.vendor))
-            // }
-            if (filterBy.isRead) {
-                mails = mails.filter(mail => mail.isRead === filterBy.isRead)
+            if (filterBy.txt) {
+                const regExp = new RegExp(filterBy.txt, 'i')
+                mails = mails.filter(mail =>
+                    regExp.test(mail.subject) ||
+                    regExp.test(mail.body) ||
+                    regExp.test(mail.from)
+                );
             }
+            // if (filterBy.isRead !== undefined && filterBy.isRead !== '') {
+            //     mails = mails.filter(mail => mail.isRead === filterBy.isRead)
+            // }
             return mails
         })
 }
@@ -66,6 +70,7 @@ function getDefaultFilter() {
     return {
         subject: '',
         body: '',
+        to: '',
         isRead: false
     };
 }
