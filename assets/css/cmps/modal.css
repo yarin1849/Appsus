@@ -1,0 +1,45 @@
+/* Modal Container */
+.modal-btn {
+    position: absolute;
+    right: 25px;
+    z-index: 2;
+}
+
+.modal {
+    position: relative;
+    top: 35px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: modal-scale-in 0.3s ease-out;
+    padding: 20px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+/* Animation */
+@keyframes modal-scale-in {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
