@@ -1,4 +1,5 @@
 import { mailService } from "../services/mail.service.js"
+import { showErrorMsg, showSuccessMsg } from "../../../services/event-bus.service.js"
 import { MailList } from "../cmps/MailList.jsx"
 import { MailCompose } from "../cmps/MailCompose.jsx"
 
@@ -26,6 +27,17 @@ export function MailIndex() {
             .then(setMails)
             .catch(err => {
                 console.log('Problems getting Emails:', err)
+            })
+    }
+
+    function onRemoveMail(mailId) {
+        mailService.remove(mailId)
+            .then(() => {
+                setMails(mails => mails.filter(mail => mail.id !== mailId))
+                showSuccessMsg(`Mail Delete successfully!`)
+            }).catch(err => {
+                console.log('Problems removing mail:', err)
+                showErrorMsg(`Problems removing mail (${mailId})`)
             })
     }
 
@@ -59,7 +71,8 @@ export function MailIndex() {
             <header>
                 <h1>Unread Mails: {unreadCount}</h1>
             </header>
-            <MailList mails={mails} handleIsRead={handleIsRead} />
+            <MailList mails={mails} handleIsRead={handleIsRead}
+                onRemoveMail={onRemoveMail} />
             <button onClick={openCompose}>+</button>
             <MailCompose isOpen={isComposeOpen} onClose={closeCompose} />
 

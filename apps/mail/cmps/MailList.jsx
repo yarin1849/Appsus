@@ -1,6 +1,6 @@
 import { MailPreview } from "./MailPreview.jsx"
 
-export function MailList({ mails, isRead, handleIsRead }) {
+export function MailList({ mails, isRead, handleIsRead, onRemoveMail }) {
 
 
     return (
@@ -11,6 +11,9 @@ export function MailList({ mails, isRead, handleIsRead }) {
                     onClick={() => handleIsRead(mail.id)}
                 >
                     <MailPreview mail={mail} />
+                    <section>
+                        <button onClick={() => onRemoveMail(mail.id)}>Delete</button>
+                    </section>
                 </li>
             )}
         </ul>
