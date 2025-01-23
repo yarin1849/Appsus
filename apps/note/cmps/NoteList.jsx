@@ -13,8 +13,8 @@ export function NoteList({ notes, onRemoveNote }) {
                     <div className="card-content">
                         <DynamicPreview {...note} />
                         <section className="card-actions">
-                            <button onClick={() => onRemoveNote(note.id)}><img src="../../assets/img/icons8-trash.svg" /></button>
-                            <button><Link to={`/note/${note.id}`}><img src="../../assets/img/icons8-edit.svg" /></Link></button>
+                            <button onClick={() => onRemoveNote(note.id)}><img src="./assets/img/icons8-trash.svg" /></button>
+                            <button><Link to={`/note/${note.id}`}><img src="./assets/img/icons8-edit.svg" /></Link></button>
                         </section>
                     </div>
                 </li>

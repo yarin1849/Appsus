@@ -17,7 +17,7 @@ export function NoteHeader({ onCloseModal, onToggleModal, isOpen, filterBy, onSe
                 <NoteFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
             </section>
 
-            <nav>
+            <nav className="nav-modal">
                 <button onClick={onToggleModal} className="modal-btn"><img src='./assets/img/186401_grid_icon.svg' alt="icon" /></button>
                 <Modal isOpen={isOpen} onClose={onCloseModal}>
                     <NavLink to="/"><img src='./assets/img/icons8-home.svg' alt="icon" /></NavLink>

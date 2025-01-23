@@ -1,6 +1,5 @@
 .note-header {
     display: flex;
-    /* flex-direction: column; */
     justify-content: space-between;
     align-items: center;
     background-color: ffffff;
@@ -16,7 +15,6 @@
 }
 
 .note-header .logo img{
-    
     display: flex;
     align-items: center;
 }
