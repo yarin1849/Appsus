@@ -2,17 +2,30 @@
     display: flex;
     /* flex-direction: column; */
     justify-content: space-between;
+    align-items: center;
+    background-color: ffffff;
+    font-family: Product Sans;
+    color: #5f6368;
+    font-size: 0.8125rem;
+
 }
 
 .note-header .logo {
     display: flex;
-    flex-direction: column;
-    place-content: center;
+    align-items: center;
+}
+
+.note-header .logo img{
+    
+    display: flex;
+    align-items: center;
 }
 
 .note-header button{
+    background-color: ffffff;
     border: none;
     border-radius: 50%;
+    opacity: 50%;
 }
 
 .note-header button:hover{
