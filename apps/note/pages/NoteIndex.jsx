@@ -29,7 +29,6 @@ export function NoteIndex() {
     }
 
     function onSetSave(note) {
-        console.log('note', note)
         noteService.save(note)
             .then(loadNotes)
     }
@@ -42,3 +41,6 @@ export function NoteIndex() {
         </section>
     )
 }
+
+
+

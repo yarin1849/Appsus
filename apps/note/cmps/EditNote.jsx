@@ -1,12 +1,14 @@
 import { noteService } from "../services/note.service.js"
+import { NoteEditTxt } from "./dynamic-edits/NoteEditTxt.jsx"
+import { NoteEditTodo } from "./dynamic-edits/NoteEditTodo.jsx"
 
 const { useState, useEffect } = React
 const { useParams } = ReactRouterDOM
 
-export function EditNote({onSetSave}) {
+export function EditNote({ onSetSave }) {
     const [noteToEdit, setNoteToEdit] = useState(noteService.getEmptyNote())
     const params = useParams()
-        
+
     useEffect(() => {
         if (params.noteId) loadNote()
     }, [params.noteId])
@@ -32,18 +34,25 @@ export function EditNote({onSetSave}) {
         }))
     }
 
-    function onSubmit(ev) {
+    function onSubmit(ev, noteToEdit) {
         ev.preventDefault()
         onSetSave(noteToEdit)
     }
 
     return (
-        <section className="add-note">
-            <form onSubmit={onSubmit}>
-                <input type="text" name="title" id="title" value={noteToEdit.info.title} onChange={onHandleChange} />
-                <input type="text" name="txt" id="txt" value={noteToEdit.info.txt} onChange={onHandleChange} />
-                <button>save</button>
-            </form>
-        </section>
+        <DynamicNoteEdit promps={noteToEdit} onSubmit={onSubmit} onHandleChange={onHandleChange} />
     )
+}
+
+function DynamicNoteEdit({ promps, onSubmit, onHandleChange }) {
+    console.log('promps', promps)
+    console.log('onsuBmit', onSubmit)
+    console.log('onHandleChange', onHandleChange)
+    switch (promps.type) {
+        case 'NoteTxt':
+            return <NoteEditTxt noteToEdit={promps} onSubmit={onSubmit} onHandleChange={onHandleChange} />
+        case 'NoteTodos':
+            return <NoteEditTodo noteToEdit={promps} onSubmit={onSubmit} onHandleChange={onHandleChange}/>
+    }
+
 }
