@@ -24,7 +24,8 @@ export function NoteIndex() {
             })
             .catch(err => {
                 console.log('Problems removing note:', err)
-                showErrorMsg(`Problems removing note (${noteId})`)})
+                showErrorMsg(`Problems removing note (${noteId})`)
+            })
     }
 
     function onSetSave(note) {
