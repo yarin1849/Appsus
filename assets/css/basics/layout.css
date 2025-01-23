@@ -1,7 +1,27 @@
+/* .main-layout {
+    display: grid;
+    grid-template-columns: 1.6rem 1fr 1.6rem;
+} */
+
 .main-layout {
     display: grid;
     grid-template-columns: 1.6rem 1fr 1.6rem;
 }
+
+.main-layout::before,
+.main-layout::after {
+    content: '';
+    background-color: #f6f8fc;
+}
+
+.main-layout::before {
+    grid-column: 1;
+}
+
+.main-layout::after {
+    grid-column: 3;
+}
+
 
 .main-layout>* {
     grid-column: 2;
