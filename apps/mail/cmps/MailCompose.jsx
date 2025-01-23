@@ -40,10 +40,6 @@ export function MailCompose({ isOpen, onClose }) {
             })
     }
 
-    function toggleModal() {
-        return !isOpen
-    }
-
     const { to, subject, body } = setMailToEdit
     if (!isOpen) return
     return (
