@@ -1,1 +1,7 @@
  /* mail index  */
+
+ .mail-index {
+     display: flex;
+     height: 100vh;
+     overflow: hidden;
+ }
