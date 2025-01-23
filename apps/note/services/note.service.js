@@ -21,7 +21,8 @@ function query(filterBy = {}) {
         .then(notes => {
             if (filterBy.txt) {
                 const regExp = new RegExp(filterBy.txt, 'i')
-                notes = notes.filter(note => regExp.test(note.vendor))
+                notes = notes.filter(note => regExp.test(note.type) || regExp.test(note.info.title) 
+                || note.info.txt && regExp.test(note.info.txt))
             }
 
             return notes
@@ -139,10 +140,8 @@ function _createNote(info) {
 
 function getFilterFromSearchParams(searchParams) {
     const txt = searchParams.get('txt') || ''
-    const minSpeed = searchParams.get('minSpeed') || ''
     return {
         txt,
-        minSpeed
     }
 }
 

@@ -5,10 +5,12 @@ import { showSuccessMsg } from "../../../services/event-bus.service.js"
 import { NoteHeader } from "../cmps/NoteHeader.jsx"
 
 const { useState, useEffect } = React
-
+const { useSearchParams, Routes, Route, Navigate } = ReactRouterDOM
 export function NoteIndex() {
     const [notes, setNotes] = useState(null)
     const [isOpen, setIsOpen] = useState(false)
+    const [searchParams, setSearchParams] = useSearchParams()
+    const [filterBy, setFilterBy] = useState(noteService.getFilterFromSearchParams(searchParams))
     
     function onToggleModal() {
         setIsOpen(isOpen => !isOpen)
@@ -19,11 +21,12 @@ export function NoteIndex() {
     }
 
     useEffect(() => {
+        setSearchParams(filterBy)
         loadNotes()
-    }, [])
+    }, [filterBy])
 
     function loadNotes() {
-        noteService.query()
+        noteService.query(filterBy)
             .then(setNotes)
     }
 
@@ -45,13 +48,15 @@ export function NoteIndex() {
     }
 
     
+    function onSetFilterBy(filterBy) {
+        setFilterBy(preFilter => ({ ...preFilter, ...filterBy }))
+    }
 
     if (!notes) return <div>Loading....</div>
     return (
         <section className="note-index" onClick={() => isOpen && setIsOpen(false)}>
-            <NoteHeader onCloseModal={onCloseModal} onToggleModal={onToggleModal} isOpen={isOpen}/>
+            <NoteHeader onCloseModal={onCloseModal} onToggleModal={onToggleModal} isOpen={isOpen} filterBy={filterBy} onSetFilterBy={onSetFilterBy}/>
             <section className="note-edit">
-
                 <EditNote onSetSave={onSetSave} />
             </section>
             <NoteList notes={notes} onRemoveNote={onRemoveNote} />

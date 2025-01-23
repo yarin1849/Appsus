@@ -1,15 +1,10 @@
 import { Modal } from './Modal.jsx'
+import { NoteFilter } from './NoteFilter.jsx'
 
 const { Link, NavLink } = ReactRouterDOM
 const { useState } = React
 
-export function NoteHeader({onCloseModal, onToggleModal, isOpen}) {
-
-    // const [isOpen, setIsOpen] = useState(false)
-    // function ToggleModal() {
-    //     setIsOpen(isOpen => !isOpen)
-    // }
-
+export function NoteHeader({ onCloseModal, onToggleModal, isOpen, filterBy, onSetFilterBy }) {
     return (
         <section className="note-header">
 
@@ -18,7 +13,9 @@ export function NoteHeader({onCloseModal, onToggleModal, isOpen}) {
                 <h1>Keep</h1>
             </div>
 
-            {/* filter section */}
+            <section>
+                <NoteFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
+            </section>
 
             <nav>
                 <button onClick={onToggleModal} className="modal-btn"><img src='./assets/img/186401_grid_icon.svg' alt="icon" /></button>
