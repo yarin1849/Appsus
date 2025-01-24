@@ -23,6 +23,9 @@ function query(filterBy = {}) {
                 const regExp = new RegExp(filterBy.txt, 'i')
                 notes = notes.filter(note => regExp.test(note.type) || regExp.test(note.info.title) 
                 || note.info.txt && regExp.test(note.info.txt))
+            } 
+            if (filterBy.menu) {
+                notes = notes.filter(note => note.type === filterBy.menu)
             }
 
             return notes
@@ -52,7 +55,8 @@ function getEmptyNote(createAt = Date.now(), type = '', isPinned = false, style 
 
 function getDefaultFilter() {
     return {
-        txt: ''
+        txt: '',
+        menu: ''
     }
 }
 

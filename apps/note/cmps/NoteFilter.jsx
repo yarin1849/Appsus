@@ -29,7 +29,6 @@ export function NoteFilter({ filterBy, onSetFilterBy }) {
 
     function onSubmit(ev) {
         ev.preventDefault()
-        console.log('filterByToEdit', filterByToEdit)
         onSetFilterBy(filterByToEdit)
     }
 

@@ -12,6 +12,7 @@ export function NoteIndex() {
     const [isOpen, setIsOpen] = useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
     const [filterBy, setFilterBy] = useState(noteService.getFilterFromSearchParams(searchParams))
+    console.log(filterBy)
 
     function onToggleModal() {
         setIsOpen(isOpen => !isOpen)
@@ -53,6 +54,12 @@ export function NoteIndex() {
         setFilterBy(preFilter => ({ ...preFilter, ...filterBy }))
     }
 
+    function onSetFilterByClick(filterBy) {
+        console.log(filterBy)
+        setFilterBy(preFilter => ({ ...preFilter, ...filterBy }))
+        
+    }
+
     if (!notes) return <div>Loading....</div>
     return (
         <section className="note-index" onClick={() => isOpen && setIsOpen(false)}>
@@ -61,7 +68,7 @@ export function NoteIndex() {
             <section className="note-main-content">
                 <section className="note-menu-filter">
                     <button><img src="./assets/img/icons8-menu.svg" alt="" /></button>
-                    <NoteMenuFilter onSetFilterBy={onSetFilterBy} />
+                    <NoteMenuFilter onSetFilterBy={onSetFilterByClick} />
                 </section>
                 <section className="note-edit">
                     <EditNote onSetSave={onSetSave} />
