@@ -57,15 +57,16 @@ export function NoteIndex() {
     return (
         <section className="note-index" onClick={() => isOpen && setIsOpen(false)}>
             <NoteHeader onCloseModal={onCloseModal} onToggleModal={onToggleModal} isOpen={isOpen} filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
-            <section className="note-edit">
-                <EditNote onSetSave={onSetSave} />
-            </section>
+
             <section className="note-main-content">
                 <section className="note-menu-filter">
                     <button><img src="./assets/img/icons8-menu.svg" alt="" /></button>
                     <NoteMenuFilter onSetFilterBy={onSetFilterBy} />
                 </section>
-                <NoteList notes={notes} onRemoveNote={onRemoveNote} />
+                <section className="note-edit">
+                    <EditNote onSetSave={onSetSave} />
+                    <NoteList notes={notes} onRemoveNote={onRemoveNote} />
+                </section>
             </section>
         </section>
     )

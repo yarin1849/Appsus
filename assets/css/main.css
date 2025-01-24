@@ -21,9 +21,10 @@
 
 @import url(./cmps/modal.css);
 @import url(./cmps/note-list.css);
-@import url(./cmps/note-edit.css);
 @import url(./apps/note/cmps/NoteMenuFilter.css);
 @import url(./apps/note/pages/NoteIndex.css);
+@import url(./cmps/note-edit.css);
+@import url(./apps/note/cmps/note-filter.css);
 @import './cmps/UserMsg.css';
 @import './cmps/AppHeader.css';
 @import './apps/mail/pages/MailIndex.css';

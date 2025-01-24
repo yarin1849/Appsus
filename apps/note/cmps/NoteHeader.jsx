@@ -13,7 +13,7 @@ export function NoteHeader({ onCloseModal, onToggleModal, isOpen, filterBy, onSe
                 <h1>Keep</h1>
             </div>
 
-            <section>
+            <section className="filter-search">
                 <NoteFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
             </section>
 

@@ -9,7 +9,13 @@
 
 }
 
+.note-header .filter-search {
+    flex: 1 1 50%;
+    max-width: 50%; 
+}
+
 .note-header .logo {
+    width: fit-content;
     display: flex;
     align-items: center;
 }
