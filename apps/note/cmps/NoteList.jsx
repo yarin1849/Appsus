@@ -13,8 +13,8 @@ export function NoteList({ notes, onRemoveNote }) {
 
                         <DynamicPreview {...note} />
                         <section className="card-actions">
-                            <button onClick={() => onRemoveNote(note.id)}><img src="./assets/img/icons8-trash.svg" /></button>
-                            <button><Link to={`/note/${note.id}`}><img src="./assets/img/icons8-edit.svg" /></Link></button>
+                            <button onClick={() => onRemoveNote(note.id)}><img src="./assets/img/icon-delete.svg" /></button>
+                            <button><Link to={`/note/${note.id}`}><img src="./assets/img/icons-pen.svg" /></Link></button>
                         </section>
 
                 </li>
@@ -31,7 +31,7 @@ function DynamicPreview(promps) {
         case 'NoteImg':
             return <NotePreviewImg note={promps} />
         case 'NoteTodos':
-            return <NotePreviewTodo note={promps}/>
+            return <NotePreviewTodo note={promps} />
 
-    } 
+    }
 }
