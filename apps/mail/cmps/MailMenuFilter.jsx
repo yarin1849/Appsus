@@ -22,7 +22,7 @@ export function MailMenuFilter({ isMenuOpen, onSetFilterBy, activeFolder, unread
             <nav className={`mail-menu-filter-content ${isMenuOpen ? 'open' : ''}`}>
                 <ul>
                     <li>
-                        <button onClick={openCompose} className="compose-button">Compose</button>
+                        <button onClick={openCompose} className="compose-button"><img src='./assets/img/icons-pen.svg' alt="icon" /></button>
                     </li>
                     <li className={activeFolder === 'inbox' ? 'active' : ''} onClick={() => setFilter('inbox')}>Inbox
                         {unreadCount > 0 && <span className="unread-count"> {unreadCount}</span>}
