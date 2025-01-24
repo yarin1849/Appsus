@@ -59,73 +59,180 @@ function getDefaultFilter() {
 function _createNotes() {
     let notes = storageService.loadFromStorage(NOTE_KEY)
     if (!notes || !notes.length) {
-        notes = [
+        const notes = [
             {
                 id: 'n101',
                 createdAt: 1112222,
                 type: 'NoteTxt',
                 isPinned: true,
-                style: {
-                    backgroundColor: '#ffffff'
-                },
+                style: { backgroundColor: '#ffffff' },
                 info: {
-                    title: 'start',
-                    txt: 'Fullstack Me Baby!'
+                    title: 'Daily Motivation',
+                    txt: 'Start your day with a positive mindset!'
                 }
             },
             {
-                id: 'n102',
-                createdAt: 1111111,
-                type: 'NoteTxt',
-                isPinned: true,
-                style: {
-                    backgroundColor: '#ffffff'
-                },
+                id: 'n203',
+                createdAt: 1118901,
+                type: 'NoteTodos',
+                isPinned: false,
+                style: { backgroundColor: '#ffffff' },
                 info: {
-                    title: 'wow',
-                    txt: 'Wowwwwwwwwwwwwwwfjslfjswgag;gw;grew cvmkdslcmkdsmclsdkmcdsmckldskl'
+                    title: 'Fitness Goals',
+                    todos: [
+                        { txt: 'Run 3km', doneAt: null },
+                        { txt: 'Do 20 push-ups', doneAt: 167111111 },
+                        { txt: 'Stretch for 10 minutes', doneAt: null }
+                    ]
                 }
             },
             {
                 id: 'n103',
-                createdAt: 1112565,
+                createdAt: 1112468,
                 type: 'NoteTxt',
                 isPinned: true,
-                style: {
-                    backgroundColor: '#ffffff'
-                },
+                style: { backgroundColor: '#ffffff' },
                 info: {
-                    title: 'bogi gogi',
-                    txt: 'How you doing'
+                    title: 'Books to Read',
+                    txt: '1. Atomic Habits\n2. Deep Work\n3. The Pragmatic Programmer'
                 }
             },
             {
-                id: 'n401',
-                createdAt: 1112223,
-                type: 'NoteImg',
+                id: 'n104',
+                createdAt: 1112565,
+                type: 'NoteTxt',
                 isPinned: false,
+                style: { backgroundColor: '#ffffff' },
                 info: {
-                    url: '../../assets/img/mazda.jpg',
-                    title: 'Bobi and Me'
-                },
-                style: {
-                    backgroundColor: '#ffffff'
+                    title: 'Shopping List',
+                    txt: 'Milk, Eggs, Bread, Avocados, Coffee'
                 }
             },
             {
-                id: 'n501',
-                createdAt: 1112111,
+                id: 'n205',
+                createdAt: 1112123,
                 type: 'NoteTodos',
                 isPinned: false,
+                style: { backgroundColor: '#ffffff' },
                 info: {
-                    title: 'Get my stuff together',
+                    title: 'Errands',
                     todos: [
-                        { txt: 'Driving license', doneAt: null },
-                        { txt: 'Coding power', doneAt: 187111111 }
+                        { txt: 'Pick up dry cleaning', doneAt: null },
+                        { txt: 'Get car serviced', doneAt: null }
                     ]
                 }
+            },
+            {
+                id: 'n105',
+                createdAt: 1113456,
+                type: 'NoteTxt',
+                isPinned: false,
+                style: { backgroundColor: '#ffffff' },
+                info: {
+                    title: 'Ideas for Vacation',
+                    txt: '1. Beach retreat in Bali\n2. Hike in the Alps\n3. Explore Tokyo'
+                }
+            },
+            {
+                id: 'n106',
+                createdAt: 1114567,
+                type: 'NoteTxt',
+                isPinned: true,
+                style: { backgroundColor: '#ffffff' },
+                info: {
+                    title: 'Meeting Notes',
+                    txt: 'Discussed the new feature timeline. Need to finalize design by next week.'
+                }
+            },
+            {
+                id: 'n107',
+                createdAt: 1115678,
+                type: 'NoteTxt',
+                isPinned: false,
+                style: { backgroundColor: '#ffffff' },
+                info: {
+                    title: 'Recipe: Pancakes',
+                    txt: 'Ingredients: flour, milk, eggs, sugar. Instructions: Mix and cook on medium heat.'
+                }
+            },
+            {
+                id: 'n201',
+                createdAt: 1116789,
+                type: 'NoteTodos',
+                isPinned: false,
+                style: { backgroundColor: '#ffffff' },
+                info: {
+                    title: 'Weekend Goals',
+                    todos: [
+                        { txt: 'Clean the garage', doneAt: null },
+                        { txt: 'Read 50 pages of a book', doneAt: null },
+                        { txt: 'Plan next week’s meals', doneAt: null }
+                    ]
+                }
+            },
+            {
+                id: 'n202',
+                createdAt: 1117890,
+                type: 'NoteTodos',
+                isPinned: true,
+                style: { backgroundColor: '#ffffff' },
+                info: {
+                    title: 'Work Tasks',
+                    todos: [
+                        { txt: 'Complete project proposal', doneAt: null },
+                        { txt: 'Schedule team meeting', doneAt: null }
+                    ]
+                }
+            },
+            {
+                id: 'n301',
+                createdAt: 1113334,
+                type: 'NoteImg',
+                isPinned: false,
+                style: { backgroundColor: '#ffffff' },
+                info: {
+                    url: './assets/img/sunset.png',
+                    title: 'Sunset at the Beach'
+                }
+            },
+            {
+                id: 'n204',
+                createdAt: 1119012,
+                type: 'NoteTodos',
+                isPinned: true,
+                style: { backgroundColor: '#ffffff' },
+                info: {
+                    title: 'Learning Goals',
+                    todos: [
+                        { txt: 'Complete SQL tutorial', doneAt: null },
+                        { txt: 'Solve 3 coding problems on LeetCode', doneAt: null }
+                    ]
+                }
+            },
+            {
+                id: 'n102',
+                createdAt: 1112345,
+                type: 'NoteTxt',
+                isPinned: false,
+                style: { backgroundColor: '#ffffff' },
+                info: {
+                    title: 'Workout Plan',
+                    txt: 'Don’t skip leg day. 30 squats, 20 lunges, and a 2km run!'
+                }
+            },
+            {
+                id: 'n302',
+                createdAt: 1114445,
+                type: 'NoteImg',
+                isPinned: true,
+                style: { backgroundColor: '#ffffff' },
+                info: {
+                    url: './assets/img/hiking.png',
+                    title: 'Hiking Adventure'
+                }
             }
-        ]
+        ];
+        
         storageService.saveToStorage(NOTE_KEY, notes)
     }
 }
