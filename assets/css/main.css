@@ -9,6 +9,7 @@
 @import './basics/helpers.css';
 @import './basics/layout.css';
 
+
 /* Pages */
 @import './pages/home.css';
 @import url(./pages/note-header.css);
@@ -35,3 +36,6 @@
 @import './apps/mail/cmps/MailSearchFilter.css';
 @import './apps/mail/cmps/MailHeader.css';
 /* @import './cmps/MailList.css'; */
+
+/* Media Queries */
+@import url(setup/mq.css);

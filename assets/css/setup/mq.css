@@ -1,0 +1,17 @@
+/* Mobile */
+@media (max-width: 760px) {
+    .mail-search-input {
+        width: 300px;
+    }
+
+    .mail-menu-filter {
+       width: 72px;
+    }
+
+    .compose-button {
+        border-radius: 10px;
+        width: 15px;
+        height: 15px;
+    }
+    
+}
