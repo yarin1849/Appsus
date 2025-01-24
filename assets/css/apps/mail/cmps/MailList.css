@@ -32,7 +32,9 @@
  }
 
  .mail-buttons {
-     opacity: 0;
+    display: flex;
+    flex-direction: row;
+    opacity: 0;
  }
 
  .mail-list li:hover .mail-buttons {

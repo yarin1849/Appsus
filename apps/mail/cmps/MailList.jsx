@@ -1,6 +1,7 @@
 import { MailPreview } from "./MailPreview.jsx"
 
 export function MailList({ mails, isRead, handleIsRead, onRemoveMail }) {
+    // console.log('mails', mails)
 
 
     return (
@@ -12,7 +13,8 @@ export function MailList({ mails, isRead, handleIsRead, onRemoveMail }) {
                 >
                     <MailPreview mail={mail} />
                     <section className="mail-buttons">
-                        <button onClick={() => onRemoveMail(mail.id)}>Delete</button>
+                        <button onClick={() => onRemoveMail(mail.id)}><img src='./assets/img/icon-delete.svg' alt="icon" /></button>
+                        <button><img src='./assets/img/icon-delete.svg' alt="icon" /></button>
                     </section>
                 </li>
             )}

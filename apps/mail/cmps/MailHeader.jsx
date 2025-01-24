@@ -18,7 +18,7 @@ export function MailHeader({ onCloseModal, onToggleModal, isOpen, filterBy, onSe
             </section>
 
             <nav>
-                <button onClick={onToggleModal} className="modal-btn"><img src='./assets/img/186401_grid_icon.svg' alt="icon" /></button>
+                <button onClick={onToggleModal} className="modal-btn"><img src='./assets/img/icon-apps.svg' alt="icon" /></button>
                 <Modal isOpen={isOpen} onClose={onCloseModal}>
                     <NavLink to="/"><img src='./assets/img/icons8-home.svg' alt="icon" /></NavLink>
                     <NavLink to="/about"><img src='./assets/img/icons8-about-50.svg' alt="icon" /></NavLink>
