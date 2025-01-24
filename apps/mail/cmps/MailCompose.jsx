@@ -1,70 +1,52 @@
+import { mailService } from "../services/mail.service.js";
 
-import { mailService } from "../services/mail.service.js"
-
-const { useNavigate, useParams } = ReactRouterDOM
-const { useState, useEffect } = React
-
+const { useNavigate } = ReactRouterDOM;
+const { useState } = React;
 
 export function MailCompose({ isOpen, onClose }) {
-
-    const [MailToEdit, setMailToEdit] = useState(mailService.getEmptyMail())
-
-    const navigate = useNavigate()
-
+    const [mailToEdit, setMailToEdit] = useState(mailService.getEmptyMail());
+    const navigate = useNavigate();
 
     function handleChange({ target }) {
-        const field = target.name
-        let value = target.value
+        const field = target.name;
+        let value = target.value;
+        if (target.type === "number" || target.type === "range") value = +value;
 
-        switch (target.type) {
-            case 'number':
-            case 'range':
-                value = +value
-                break;
-        }
-        setMailToEdit(prevMail => ({ ...prevMail, [field]: value }))
+        setMailToEdit((prevMail) => ({ ...prevMail, [field]: value }));
     }
 
     function onSendMail(ev) {
-        ev.preventDefault()
-        mailService.save(MailToEdit)
-            .then(mail => {
-                console.log("Mail sent:", mail)
+        ev.preventDefault();
+        mailService
+            .save(mailToEdit)
+            .then((mail) => {
+                console.log("Mail sent:", mail);
             })
-            .catch(err => {
-                console.log('err:', err)
+            .catch((err) => {
+                console.error("Error sending mail:", err);
             })
             .finally(() => {
-                onClose()
-                navigate('/mail')
-            })
+                onClose();
+                navigate("/mail");
+            });
     }
 
-    const { to, subject, body } = setMailToEdit
-    if (!isOpen) return
+    if (!isOpen) return null;
+
     return (
         <div className="mail-modal-overlay">
-            <div className="mail-modal-content">
-                <header className="mail-modal-header">
-                    <h3>Send Mail</h3>
-                    <button onClick={onClose} className="close-button">&times;</button>
+            <div className="mail-modal">
+                <header className="modal-header">
+                    <h2>New Message</h2>
+                    <button onClick={onClose} className="close-btn">&times;</button>
                 </header>
-                <form onSubmit={onSendMail} className="mail-modal-form">
-                    <div className="form-group">
-                        <label htmlFor="to">To:</label>
-                        <input value={to} onChange={handleChange} type="text" name="to" id="to" required />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="subject">Subject:</label>
-                        <input value={subject} onChange={handleChange} type="text" name="subject" id="subject" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="body">Body:</label>
-                        <textarea value={body} onChange={handleChange} name="body" id="body" rows="5"></textarea>
-                    </div>
+                <form onSubmit={onSendMail} className="modal-body">
+                    <div className="form-row"><input value={mailToEdit.to} onChange={handleChange} type="email" name="to" placeholder="Recipients" required /><button type="button" className="cc-bcc">Cc Bcc</button></div>
+                    <div className="form-row"><input value={mailToEdit.subject} onChange={handleChange} type="text" name="subject" placeholder="Subject" /></div>
+                    <div className="form-row"><textarea value={mailToEdit.body} onChange={handleChange} name="body" placeholder="Compose email" rows="5"></textarea></div>
                     <footer className="modal-footer">
-                        <button type="submit" className="send-button">Send</button>
-                        <button type="button" className="cancel-button" onClick={onClose}>Cancel</button>
+                        <button type="submit" className="send-btn">Send</button>
+                        <button type="button" className="cancel-btn" onClick={onClose}>Cancel</button>
                     </footer>
                 </form>
             </div>

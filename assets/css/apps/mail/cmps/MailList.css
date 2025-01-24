@@ -14,8 +14,9 @@
  .mail-list li {
      display: flex;
      align-items: center;
+     font-family: Roboto, sans-serif; 
      justify-content: space-between;
-     /* padding: 10px 15px; */
+     padding: 10px 15px;
      border-bottom: 1px solid #ddd;
      transition: background-color 0.2s;
      cursor: pointer;
@@ -36,4 +37,5 @@
 
  .mail-list li:hover .mail-buttons {
      opacity: 1;
+     flex-direction: end;
  }
