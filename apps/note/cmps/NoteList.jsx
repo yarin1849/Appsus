@@ -9,14 +9,14 @@ export function NoteList({ notes, onRemoveNote }) {
     return (
         <ul className="note-list">
             {notes.map(note =>
-                <li key={note.id} style={note.style ? { backgroundColor: note.style.backgroundColor } : { backgroundColor: 'white' }}>
-                    <div className="card-content">
+                <li className="card-content" key={note.id} style={note.style ? { backgroundColor: note.style.backgroundColor } : { backgroundColor: 'white' }}>
+
                         <DynamicPreview {...note} />
                         <section className="card-actions">
                             <button onClick={() => onRemoveNote(note.id)}><img src="./assets/img/icons8-trash.svg" /></button>
                             <button><Link to={`/note/${note.id}`}><img src="./assets/img/icons8-edit.svg" /></Link></button>
                         </section>
-                    </div>
+
                 </li>
             )}
         </ul>

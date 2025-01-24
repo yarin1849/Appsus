@@ -6,7 +6,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(238px, 1fr));
     grid-auto-flow: row;
-    gap: 7px;
+    gap: 15px;
     justify-content: center;
 }
 
@@ -34,7 +34,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    margin-bottom: 8px;
+    justify-content: space-between;
 }
 
 .card-actions {
@@ -54,6 +54,11 @@
 
 .card-actions button:hover {
     transform: scale(1.1);
+}
+
+.note-list li{
+    border: 0.5px solid #202124;
+    border-radius: 0.5rem;
 }
 
 .note-list li img {

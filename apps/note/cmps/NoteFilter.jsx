@@ -39,7 +39,7 @@ export function NoteFilter({ filterBy, onSetFilterBy }) {
     return (
         <section className="note-filter">
             <form onSubmit={onSubmit}>
-                <input value={txt} onChange={handleChange} type="text" name="txt" id="txt" placeholder="Search" />
+                <input className="note-search-input" value={txt} onChange={handleChange} type="text" name="txt" id="txt" placeholder="Search" />
             </form>
         </section>
     )
