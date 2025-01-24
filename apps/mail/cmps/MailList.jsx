@@ -1,7 +1,7 @@
 import { MailPreview } from "./MailPreview.jsx"
 
 export function MailList({ mails, isRead, handleIsRead, onRemoveMail }) {
-    // console.log('mails', mails)
+    console.log('mails', mails)
 
 
     return (

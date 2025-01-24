@@ -61,6 +61,25 @@ export function MailIndex() {
             })
     }
 
+    // function formatTimestamp(timestamp) {
+    //     const now = new Date()
+    //     const emailDate = new Date(timestamp)
+    //     const diffInMilliseconds = now - emailDate
+
+    //     const oneDayInMilliseconds = 24 * 60 * 60 * 1000
+
+    //     if (diffInMilliseconds < oneDayInMilliseconds) {
+    //         const hours = emailDate.getHours().toString().padStart(2, '0');
+    //         const minutes = emailDate.getMinutes().toString().padStart(2, '0');
+    //         return `${hours}:${minutes}`;
+    //     } else {
+    //         const day = emailDate.getDate();
+    //         const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    //         const month = monthNames[emailDate.getMonth()];
+    //         return `${day} ${month}`;
+    //     }
+    // }
+
     function updateUnreadCount() {
         const unread = mails.reduce((acc, mail) => (mail.isRead ? acc : acc + 1), 0)
         setUnreadCount(unread)

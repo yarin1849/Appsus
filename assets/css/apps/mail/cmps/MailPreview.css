@@ -39,8 +39,8 @@
 
 .mail-from {
     font-weight: bold;
-    flex-basis: 200px; /* Fixed width for sender */
-    flex-shrink: 0;    /* Prevent shrinking */
+    flex-basis: 200px;
+    flex-shrink: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -50,7 +50,7 @@
     font-weight: bold;
     text-align: left;
     flex-shrink: 0; 
-    flex-grow: 1; /* Take remaining space */
+    flex-grow: 1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

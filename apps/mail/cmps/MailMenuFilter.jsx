@@ -30,9 +30,11 @@ export function MailMenuFilter({ isMenuOpen, onSetFilterBy, activeFolder, unread
                     <li className={activeFolder === 'sent' ? 'active' : ''} onClick={() => setFilter('sent')}>Sent</li>
                 </ul>
             </nav>
-            {isComposeOpen && (
-                <MailCompose isOpen={isComposeOpen} onClose={closeCompose} />
-            )}
+            {
+                isComposeOpen && (
+                    <MailCompose isOpen={isComposeOpen} onClose={closeCompose} />
+                )
+            }
         </section>
     )
 }
