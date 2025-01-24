@@ -6,7 +6,7 @@ header {
 .app-header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 0;
+    /* padding: 20px 0; */
 }
 
 .app-header .gmail {
@@ -30,4 +30,8 @@ nav a.active {
 img {
     width: auto;
     height: auto;
+}
+
+.logo {
+    width: 40px;
 }
