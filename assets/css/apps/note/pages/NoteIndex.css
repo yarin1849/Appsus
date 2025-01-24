@@ -1,1 +1,22 @@
- /* note index */
+.note-index {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Note Main Content */
+.note-main-content {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 70px); /* Adjust for header height */
+}
+
+.note-edit {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align EditNote to the top */
+    margin: 0 auto; /* Center align the note-edit container */
+    gap: 16px; /* Space between EditNote and NoteList */
+}
+

@@ -6,7 +6,7 @@ export function MailMenuFilter({ isMenuOpen, onSetFilterBy, activeFolder, unread
     const [isComposeOpen, setIsComposeOpen] = useState(false)
 
     function setFilter(filter) {
-        onSetFilterBy({ folder: filter })
+        onSetFilterBy({ [filter]: 'user@appsus.com' })
     }
 
     function openCompose() {
@@ -24,10 +24,10 @@ export function MailMenuFilter({ isMenuOpen, onSetFilterBy, activeFolder, unread
                     <li>
                         <button onClick={openCompose} className="compose-button"><img src='./assets/img/icons-pen.svg' alt="icon" /></button>
                     </li>
-                    <li className={activeFolder === 'inbox' ? 'active' : ''} onClick={() => setFilter('inbox')}>Inbox
+                    <li className={activeFolder === 'inbox' ? 'active' : ''} onClick={() => setFilter('to')}>Inbox
                         {unreadCount > 0 && <span className="unread-count"> {unreadCount}</span>}
                     </li>
-                    <li className={activeFolder === 'sent' ? 'active' : ''} onClick={() => setFilter('sent')}>Sent</li>
+                    <li className={activeFolder === 'sent' ? 'active' : ''} onClick={() => setFilter('from')}>Sent</li>
                 </ul>
             </nav>
             {

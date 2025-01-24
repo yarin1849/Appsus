@@ -8,6 +8,14 @@
        width: 72px;
     }
 
+    .note-search-input {
+        width: 300px;
+    }
+
+    .note-menu-filter {
+       width: 72px;
+    }
+
     .compose-button {
         border-radius: 10px;
         width: 15px;

@@ -74,11 +74,9 @@ export function EditNote({ onSetSave }) {
                 alignItems: 'center',
                 border: '1px solid #ccc',
                 borderRadius: '8px',
-                padding: '8px 12px',
                 boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
                 background: '#fff',
                 maxWidth: '400px',
-                margin: '20px auto',
             }}
         >
             <input

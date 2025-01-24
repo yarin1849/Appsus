@@ -104,6 +104,9 @@ export function MailIndex() {
         setIsOpen(false)
     }
 
+    function onSetFilterByClick(filterBy) {
+        setFilterBy(preFilter => ({ ...preFilter, ...filterBy })) 
+    }
 
     if (!mails) return <h1>Loading...</h1>
     return (
@@ -113,7 +116,7 @@ export function MailIndex() {
             <section className="mail-main-content">
                 <section className="mail-menu-filter">
                     <button><img src="./assets/img/icons8-menu.svg" alt="" /></button>
-                    <MailMenuFilter isMenuOpen={true} onSetFilterBy={onSetFilterBy} activeFolder={filterBy.folder} unreadCount={unreadCount} />
+                    <MailMenuFilter isMenuOpen={true} onSetFilterBy={onSetFilterByClick} activeFolder={filterBy.folder} unreadCount={unreadCount} />
                 </section>
                 <MailList mails={mails} handleIsRead={handleIsRead}
                     onRemoveMail={onRemoveMail} />

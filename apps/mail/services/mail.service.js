@@ -25,11 +25,15 @@ function query(filterBy = {}) {
                     regExp.test(mail.subject) ||
                     regExp.test(mail.body) ||
                     regExp.test(mail.from)
-                );
+                )
             }
-            // if (filterBy.isRead !== undefined && filterBy.isRead !== '') {
-            //     mails = mails.filter(mail => mail.isRead === filterBy.isRead)
-            // }
+            if (filterBy.from) {
+                mails = mails.filter(mail => mail.from === 'user@appsus.com') 
+                filterBy.from = ''
+            } else if (filterBy.to) {
+                mails = mails.filter(mail => mail.to === 'user@appsus.com') 
+                filterBy.to = ''
+            }
             return mails
         })
 }
@@ -70,7 +74,9 @@ function getDefaultFilter() {
     return {
         subject: '',
         body: '',
-        to: '',
+        to: 'user@appsus.com',
+        from: '',
+        sent,
         isRead: false
     };
 }
@@ -82,7 +88,9 @@ function _createMails() {
             _createMail('greetings', 'How have you been?', false, 'friend@example.com', 'user@appsus.com'),
             _createMail('reminder', 'Don’t forget the meeting tomorrow!', false, 'boss@example.com', 'user@appsus.com'),
             _createMail('updates', 'Here are the latest updates from the team.', false, 'team@example.com', 'user@appsus.com'),
-            _createMail('offer', 'Congratulations! You’ve won a special prize!', false, 'promo@example.com', 'user@appsus.com')
+            _createMail('offer', 'Congratulations! You’ve won a special prize!', false, 'promo@example.com', 'user@appsus.com'),
+            _createMail('offer', 'Congratulations! You’ve won a special prize!', false, 'user@appsus.com', 'promo@example.com'),
+            _createMail('offer', 'Congratulations! You’ve won a special prize!', false, 'user@appsus.com', 'promo@example.com')
         ];
         storageService.saveToStorage(MAIL_KEY, mails);
     }
@@ -97,10 +105,12 @@ function getFilterFromSearchParams(searchParams) {
     const subject = searchParams.get('txt') || '';
     const body = searchParams.get('txt') || '';
     const isRead = searchParams.get('isRead') === 'true'; // Convert to boolean
+    const to = searchParams.get('to') || 'user@appsus.com';
     return {
         subject,
         body,
-        isRead
+        isRead,
+        to
     };
 }
 
