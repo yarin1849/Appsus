@@ -1,0 +1,38 @@
+.note-menu-filter {
+    width: 256px;
+    background-color: #f6f8fc;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.note-menu-filter-content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.note-menu-filter-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 20px;
+}
+
+
+.note-menu-filter-content li {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+
+.note-menu-filter-content li:hover {
+    background-color: #c9c9c9;
+}
+
+
+.note-menu-filter-content li.active {
+    font-weight: bold;
+    background-color: #d3e3fd;
+}

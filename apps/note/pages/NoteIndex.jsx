@@ -3,6 +3,7 @@ import { EditNote } from "../cmps/EditNote.jsx"
 import { noteService } from "../services/note.service.js"
 import { showSuccessMsg } from "../../../services/event-bus.service.js"
 import { NoteHeader } from "../cmps/NoteHeader.jsx"
+import { NoteMenuFilter } from "../cmps/NoteMenuFilter.jsx"
 
 const { useState, useEffect } = React
 const { useSearchParams, Routes, Route, Navigate } = ReactRouterDOM
@@ -11,7 +12,7 @@ export function NoteIndex() {
     const [isOpen, setIsOpen] = useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
     const [filterBy, setFilterBy] = useState(noteService.getFilterFromSearchParams(searchParams))
-    
+
     function onToggleModal() {
         setIsOpen(isOpen => !isOpen)
     }
@@ -47,7 +48,7 @@ export function NoteIndex() {
             .then(loadNotes)
     }
 
-    
+
     function onSetFilterBy(filterBy) {
         setFilterBy(preFilter => ({ ...preFilter, ...filterBy }))
     }
@@ -55,11 +56,17 @@ export function NoteIndex() {
     if (!notes) return <div>Loading....</div>
     return (
         <section className="note-index" onClick={() => isOpen && setIsOpen(false)}>
-            <NoteHeader onCloseModal={onCloseModal} onToggleModal={onToggleModal} isOpen={isOpen} filterBy={filterBy} onSetFilterBy={onSetFilterBy}/>
+            <NoteHeader onCloseModal={onCloseModal} onToggleModal={onToggleModal} isOpen={isOpen} filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
             <section className="note-edit">
                 <EditNote onSetSave={onSetSave} />
             </section>
-            <NoteList notes={notes} onRemoveNote={onRemoveNote} />
+            <section className="note-main-content">
+                <section className="note-menu-filter">
+                    <button><img src="./assets/img/icons8-menu.svg" alt="" /></button>
+                    <NoteMenuFilter onSetFilterBy={onSetFilterBy} />
+                </section>
+                <NoteList notes={notes} onRemoveNote={onRemoveNote} />
+            </section>
         </section>
     )
 }

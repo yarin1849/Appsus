@@ -243,8 +243,6 @@ function _createNote(info) {
     return note
 }
 
-
-
 function getFilterFromSearchParams(searchParams) {
     const txt = searchParams.get('txt') || ''
     return {
