@@ -4,6 +4,7 @@ import { MailList } from "../cmps/MailList.jsx"
 import { MailCompose } from "../cmps/MailCompose.jsx"
 import { MailFilter } from "../cmps/MailFilter.jsx"
 import { MailMenuFilter } from "../cmps/MailMenuFilter.jsx"
+import { MailHeader } from "../cmps/MailHeader.jsx"
 
 const { useSearchParams, Routes, Route, Navigate } = ReactRouterDOM
 const { useState, useEffect } = React
@@ -13,6 +14,7 @@ export function MailIndex() {
     const [isRead, setIsRead] = useState()
     const [unreadCount, setUnreadCount] = useState(0)
     const [isComposeOpen, setIsComposeOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
     const [filterBy, setFilterBy] = useState(mailService.getFilterFromSearchParams(searchParams))
 
@@ -76,23 +78,27 @@ export function MailIndex() {
         setFilterBy((prevFilter) => ({ ...prevFilter, ...newFilter }));
     }
 
+    function onToggleModal() {
+        setIsOpen(isOpen => !isOpen)
+    }
+    function onCloseModal() {
+        setIsOpen(false)
+    }
+
 
     if (!mails) return <h1>Loading...</h1>
     return (
-        <section className="mail-index">
-            <header>
-                <section>
-                    <section className="mail-search-filter">
-                        <MailFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
-                    </section>
-                    <section className="mail-menu-filter">
-                        <button><img src="./assets/img/icons8-menu.svg" alt="" /></button>
-                        <MailMenuFilter isMenuOpen={true} onSetFilterBy={onSetFilterBy} activeFolder={filterBy.folder} unreadCount={unreadCount} />
-                    </section>
+        <section className="mail-index" onClick={() => isOpen && setIsOpen(false)}>
+            <MailHeader onCloseModal={onCloseModal} onToggleModal={onToggleModal} isOpen={isOpen} filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
+            {/* <MailFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} /> */}
+            <section className="mail-main-content">
+                <section className="mail-menu-filter">
+                    <button><img src="./assets/img/icons8-menu.svg" alt="" /></button>
+                    <MailMenuFilter isMenuOpen={true} onSetFilterBy={onSetFilterBy} activeFolder={filterBy.folder} unreadCount={unreadCount} />
                 </section>
-            </header>
-            <MailList mails={mails} handleIsRead={handleIsRead}
-                onRemoveMail={onRemoveMail} />
+                <MailList mails={mails} handleIsRead={handleIsRead}
+                    onRemoveMail={onRemoveMail} />
+            </section>
 
         </section>
     )
