@@ -24,8 +24,6 @@ export function EditNote({ onSetSave }) {
     }
 
     function handleInputClick() {
-
-
         noteToEdit.type = 'NoteTxt'
         noteService.save(noteToEdit)
             .then((saveNote) => {
