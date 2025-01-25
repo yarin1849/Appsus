@@ -41,7 +41,6 @@ export function MailFilter({ filterBy, onSetFilterBy }) {
 
     return (
         <section className="mail-filter">
-            {/* <MailMenuFilter onSetFilterBy={onSetFilterBy} /> */}
             <form onSubmit={onSubmit}>
                 <input className="mail-search-input" value={txt} onChange={handleChange} type="text" name="txt" placeholder="Search Mail" />
                 <button>Search</button>
