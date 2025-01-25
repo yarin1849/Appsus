@@ -1,3 +1,31 @@
+/*Tablet*/
+@media (max-width: 1100px) {
+    .mail-search-input {
+        width: 350px;
+    }
+
+    .mail-menu-filter {
+       width: 72px;
+    }
+
+    .note-search-input {
+        width: 300px;
+    }
+
+    .note-menu-filter {
+       width: 72px;
+       font-size: 12px;
+    }
+
+    .compose-button {
+        border-radius: 10px;
+        width: 15px;
+        height: 15px;
+    }
+    
+}
+
+
 /* Mobile */
 @media (max-width: 760px) {
     .mail-search-input {
