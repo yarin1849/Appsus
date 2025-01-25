@@ -1,7 +1,14 @@
 .mail-row {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 12px;
+}
+
+.mail-info-container{
+    display: flex;
+    justify-content: space-between;
+
 }
 
 .mail-from {
@@ -24,19 +31,24 @@
 }
 
 .mail-body {
-    flex-grow: 3;
     flex-shrink: 0; 
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    flex-basis: 400px;
 }
 
-.mail-time {
+.mail-time::before {
     font-size: 12px;
     color: #5f6368;
-    flex-shrink: 0;
     white-space: nowrap;
     margin-left: 10px;
+    align-content: end;
+    justify-self: end;
+    margin-left: auto
 }
 
+.mail-time:hover::after{
+    opacity: 0;
+}
 

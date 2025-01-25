@@ -4,13 +4,6 @@
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-/* 
-.mail-menu-filter:hover,
-.mail-menu-filter.open {
-    width: 256px;
-
-} */
-
 .mail-menu-filter-content {
     display: flex;
     flex-direction: column;

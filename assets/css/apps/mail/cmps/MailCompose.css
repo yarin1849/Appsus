@@ -1,6 +1,3 @@
-
-
-
 .modal-header h2 {
     font-size: 14px;
 }
@@ -14,10 +11,11 @@
 }
 
 .modal-body {
-    padding: 15px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 16px;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .form-row {
@@ -28,15 +26,23 @@
 
 .form-row input,
 .form-row textarea {
-    flex-grow: 1;
+    width: 100%;
     font-size: 14px;
     padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    outline: none;
+    color: #202124;
+    background-color: transparent;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+    border-bottom: 2px solid #1a73e8;
 }
 
 .form-row textarea {
-    min-height: 100px;
+    min-height: 300px;
     resize: none;
 }
 
@@ -62,12 +68,16 @@
     background-color: #1a73e8;
     color: white;
     font-size: 14px;
-    padding: 8px 16px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 16px;
     cursor: pointer;
 }
 
+.send-btn:hover {
+    background-color: #1b61d1;
+    border-radius: 18px;
+}
 
 .cancel-btn {
     background: none;
@@ -77,13 +87,11 @@
     cursor: pointer;
 }
 
+.cancel-btn:hover {
+    text-decoration: underline;
+}
 
-
-
-
-/**/
-
- .mail-modal-overlay {
+.mail-modal-overlay {
     position: fixed;
     bottom: 0;
     right: 0;
@@ -106,7 +114,7 @@
     flex-direction: column;
     font-family: Arial, sans-serif;
 }
-    
+
 .modal-header {
     display: flex;
     justify-content: space-between;
@@ -116,63 +124,4 @@
     color: #041e49;
     border-bottom: 1px solid #ddd;
     border-radius: 8px 8px 0 0;
-    }
-
-/*  */
-
-
-.modal-body {
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    border-bottom: 1px solid #e0e0e0; /* Line below inputs */
-}
-
-.form-row input,
-.form-row textarea {
-    width: 100%;
-    font-size: 14px;
-    padding: 8px;
-    border: none;
-    border-bottom: 1px solid #e0e0e0; /* Underline for inputs */
-    outline: none;
-    color: #202124;
-    background-color: transparent; /* Match Gmail style */
-}
-
-.form-row input:focus,
-.form-row textarea:focus {
-    border-bottom: 2px solid #1a73e8; /* Blue focus underline */
-}
-
-.form-row textarea {
-    min-height: 300px;
-}
-
-.send-btn {
-    background-color: #1a73e8;
-    color: white;
-    font-size: 14px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 16px;
-    cursor: pointer;
-}
-
-.send-btn:hover {
-    background-color: #1b61d1; /* Darker blue on hover */
-    border-radius: 18px 0px 0px 18px solid #ddd;
-}
-
-.cancel-btn {
-    background: none;
-    border: none;
-    color: #5f6368;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.cancel-btn:hover {
-    text-decoration: underline; /* Gmail-style hover */
 }

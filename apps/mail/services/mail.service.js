@@ -28,10 +28,10 @@ function query(filterBy = {}) {
                 )
             }
             if (filterBy.from) {
-                mails = mails.filter(mail => mail.from === 'user@appsus.com') 
+                mails = mails.filter(mail => mail.from === 'user@appsus.com')
                 filterBy.from = ''
             } else if (filterBy.to) {
-                mails = mails.filter(mail => mail.to === 'user@appsus.com') 
+                mails = mails.filter(mail => mail.to === 'user@appsus.com')
                 filterBy.to = ''
             }
             return mails
@@ -55,19 +55,18 @@ function save(mail) {
     }
 }
 
-function getEmptyMail(subject = '', body = '', isRead = false, from = '', to = '') {
-    const now = Date.now();
+function getEmptyMail(createdAt = Date.now(), sentAt = Date.now(), subject = '', body = '', isRead = false, from = 'user@appsus.com', to = '') {
     return {
-        id: utilService.makeId(),
-        createdAt: now,
-        sentAt: now,
+        id: '',
+        createdAt,
+        sentAt,
         subject,
         body,
         isRead,
         removedAt: null,
         from,
         to
-    };
+    }
 }
 
 function getDefaultFilter() {
@@ -76,42 +75,48 @@ function getDefaultFilter() {
         body: '',
         to: 'user@appsus.com',
         from: '',
-        sent,
+        sent: '',
         isRead: false
-    };
-}
-
-function _createMails() {
-    let mails = storageService.loadFromStorage(MAIL_KEY);
-    if (!mails || !mails.length) {
-        mails = [
-            _createMail('greetings', 'How have you been?', false, 'friend@example.com', 'user@appsus.com'),
-            _createMail('reminder', 'Don’t forget the meeting tomorrow!', false, 'boss@example.com', 'user@appsus.com'),
-            _createMail('updates', 'Here are the latest updates from the team.', false, 'team@example.com', 'user@appsus.com'),
-            _createMail('offer', 'Congratulations! You’ve won a special prize!', false, 'promo@example.com', 'user@appsus.com'),
-            _createMail('offer', 'Congratulations! You’ve won a special prize!', false, 'user@appsus.com', 'promo@example.com'),
-            _createMail('offer', 'Congratulations! You’ve won a special prize!', false, 'user@appsus.com', 'promo@example.com')
-        ];
-        storageService.saveToStorage(MAIL_KEY, mails);
     }
 }
 
-function _createMail(subject = 'Hi', body = 'Hello There', isRead = false, from = 'no-reply@example.com', to = 'user@appsus.com') {
-    const mail = getEmptyMail(subject, body, isRead, from, to);
-    return mail;
+function _createMails() {
+    let mails = storageService.loadFromStorage(MAIL_KEY)
+    if (!mails || !mails.length) {
+        mails = [
+            _createMail(Date.now(), Date.now(), 'greetings', 'How have you been?', false, 'friend@example.com', 'user@appsus.com'),
+            _createMail(Date.now() - 1 * 24 * 60 * 60 * 1000, Date.now() - 1 * 24 * 60 * 60 * 1000, 'reminder', 'Don’t forget the meeting tomorrow!', false, 'boss@example.com', 'user@appsus.com'),
+            _createMail(Date.now() - 2 * 24 * 60 * 60 * 1000, Date.now() - 2 * 24 * 60 * 60 * 1000, 'updates', 'Here are the latest updates from the team.', false, 'team@example.com', 'user@appsus.com'),
+            _createMail(Date.now() - 3 * 24 * 60 * 60 * 1000, Date.now() - 3 * 24 * 60 * 60 * 1000, 'offer', 'Congratulations! You’ve won a special prize!', false, 'promo@example.com', 'user@appsus.com'),
+            _createMail(Date.now() - 5 * 24 * 60 * 60 * 1000, Date.now() - 5 * 24 * 60 * 60 * 1000, 'survey', 'Please take a moment to fill out our survey.', true, 'survey@example.com', 'user@appsus.com'),
+            _createMail(Date.now() - 6 * 24 * 60 * 60 * 1000, Date.now() - 6 * 24 * 60 * 60 * 1000, 'project update', 'Here is the latest project update.', true, 'project@example.com', 'user@appsus.com'),
+            _createMail(Date.now() - 8 * 24 * 60 * 60 * 1000, Date.now() - 10 * 24 * 60 * 60 * 1000, 'reminder', 'Just a friendly reminder!', true, 'friend@example.com', 'user@appsus.com'),
+            _createMail(Date.now() - 9 * 24 * 60 * 60 * 1000, Date.now() - 15 * 24 * 60 * 60 * 1000, 'thank you', 'Thank you for your support!', false, 'support@example.com', 'user@appsus.com'),
+            _createMail(Date.now() - 4 * 24 * 60 * 60 * 1000, Date.now() - 40 * 24 * 60 * 60 * 1000, 'invitation', 'You’re invited to our event!', false, 'event@example.com', 'user@appsus.com'),
+            _createMail(Date.now() - 7 * 24 * 60 * 60 * 1000, Date.now() - 70 * 24 * 60 * 60 * 1000, 'news', 'Breaking news from around the world.', false, 'news@example.com', 'user@appsus.com'),
+            _createMail(Date.now() - 9 * 24 * 60 * 60 * 1000, Date.now() - 90 * 24 * 60 * 60 * 1000, 'thank you', 'Thank you for your support!', false, 'user@appsus.com', 'promo@example.com'),
+            _createMail(Date.now() - 9 * 24 * 60 * 60 * 1000, Date.now() - 120 * 24 * 60 * 60 * 1000, 'thank you', 'Thank you for your support!', false, 'user@appsus.com', 'friend@example.com'),
+        ]
+        storageService.saveToStorage(MAIL_KEY, mails)
+    }
+}
+
+function _createMail(createdAt = Date.now(), sentAt = Date.now(), subject = 'Hi', body = 'Hello There', isRead = false, from = 'no-reply@example.com', to = 'user@appsus.com') {
+    const mail = getEmptyMail(createdAt, sentAt, subject, body, isRead, from, to)
+    return mail
 }
 
 function getFilterFromSearchParams(searchParams) {
-    const subject = searchParams.get('txt') || '';
-    const body = searchParams.get('txt') || '';
-    const isRead = searchParams.get('isRead') === 'true'; // Convert to boolean
-    const to = searchParams.get('to') || 'user@appsus.com';
+    const subject = searchParams.get('txt') || ''
+    const body = searchParams.get('txt') || ''
+    const isRead = searchParams.get('isRead') === 'true'
+    const to = searchParams.get('to') || 'user@appsus.com'
     return {
         subject,
         body,
         isRead,
         to
-    };
+    }
 }
 
 

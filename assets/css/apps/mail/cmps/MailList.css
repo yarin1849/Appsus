@@ -12,32 +12,42 @@
  }
 
  .mail-list li {
-     display: flex;
-     align-items: center;
      font-family: Roboto, sans-serif; 
-     justify-content: space-between;
      padding: 10px 15px;
      border-bottom: 1px solid #ddd;
      transition: background-color 0.2s;
      cursor: pointer;
-     position: relative;
+
  }
 
  .mail-list li:hover {
      box-shadow: rgba(100, 121, 143, 0.12) 0px -1px 0px 0px inset
  }
 
+
  .mail-list li.read {
      background-color: #f2f6fc;
  }
 
  .mail-buttons {
-    display: flex;
-    flex-direction: row;
-    opacity: 0;
+    display: none;
+    background: none;
+    border: none;
  }
 
  .mail-list li:hover .mail-buttons {
-     opacity: 1;
-     flex-direction: end;
+    display: flex;
+ }
+
+ .mail-time {
+    display: flex;
+    flex-direction: row;
+ }
+
+ .mail-list li:hover .mail-time {
+    display: none;
+ }
+
+ .mail-preview-container{
+    display: flex;
  }

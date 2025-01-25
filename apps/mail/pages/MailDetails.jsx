@@ -1,4 +1,7 @@
 import { mailService } from "../services/mail.service.js"
+import { MailPreview } from "../cmps/MailPreview.jsx"
+import { utilService } from '../../../services/util.service.js'
+
 
 const { useEffect, useState } = React
 const { useParams, useNavigate, Link } = ReactRouterDOM
@@ -27,15 +30,14 @@ export function MailDetails() {
     }
 
 
-
-
-
     if (!mail) return <div>Loading...</div>
     return (
         <div className="mail-details">
+            <button><Link to={`/mail/`}><img src='./assets/img/icon-back.svg' alt="icon" /></Link></button>
             <h1>{mail.subject}</h1>
-            <h2>{mail.body}</h2>
-            <button><Link to={`/mail/`}>back</Link></button>
+            <h2>{mail.from}</h2>
+            <span>{utilService.formatTimestamp(mail.sentAt)}</span>
+            <div>{mail.body}</div>
         </div>
     )
 }

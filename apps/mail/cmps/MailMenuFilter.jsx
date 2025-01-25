@@ -6,6 +6,8 @@ export function MailMenuFilter({ isMenuOpen, onSetFilterBy, activeFolder, unread
     const [isComposeOpen, setIsComposeOpen] = useState(false)
 
     function setFilter(filter) {
+        console.log('filter', filter)
+        activeFolder = (filter === 'to') ? 'inbox' : 'sent'
         onSetFilterBy({ [filter]: 'user@appsus.com' })
     }
 
@@ -15,6 +17,10 @@ export function MailMenuFilter({ isMenuOpen, onSetFilterBy, activeFolder, unread
 
     function closeCompose() {
         setIsComposeOpen(false)
+    }
+
+    function toggleActive() {
+        activeFolder = 'inbox'
     }
 
     return (
