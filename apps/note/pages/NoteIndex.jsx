@@ -12,7 +12,6 @@ export function NoteIndex() {
     const [isOpen, setIsOpen] = useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
     const [filterBy, setFilterBy] = useState(noteService.getFilterFromSearchParams(searchParams))
-    console.log(filterBy)
 
     function onToggleModal() {
         setIsOpen(isOpen => !isOpen)
@@ -72,7 +71,7 @@ export function NoteIndex() {
                 </section>
                 <section className="note-edit">
                     <EditNote onSetSave={onSetSave} />
-                    <NoteList notes={notes} onRemoveNote={onRemoveNote} />
+                    <NoteList notes={notes} onRemoveNote={onRemoveNote} onloadNotes={loadNotes}/>
                 </section>
             </section>
         </section>
