@@ -104,7 +104,7 @@ export function MailIndex() {
             <MailHeader onCloseModal={onCloseModal} onToggleModal={onToggleModal} isOpen={isOpen} filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
             <section className="mail-main-content">
                 <section className="mail-menu-filter">
-                    <button><img src="./assets/img/icons8-menu.svg" alt="" /></button>
+                    {/* <button><img src="./assets/img/icons8-menu.svg" alt="" /></button> */}
                     <MailMenuFilter isMenuOpen={true} onSetFilterBy={onSetFilterByClick} activeFolder={filterBy.folder} unreadCount={unreadCount} />
                 </section>
                 <MailList mails={mails} handleIsRead={handleIsRead}

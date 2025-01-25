@@ -21,10 +21,18 @@ main.home {
 }
 
 .home h1 {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Roboto, 'Times New Roman', Times, serif;
+}
+
+.home h2 {
+    font-family: Roboto, 'Times New Roman', Times, serif;
 }
 
 .home ul{
     display: grid;
     place-items: center;
+}
+
+.home p {
+    font-family: Roboto;
 }
