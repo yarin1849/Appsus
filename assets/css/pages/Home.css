@@ -1,38 +1,30 @@
- /* home  */
-
- .home {
+/* home  */
+.home {
     display: grid;
     grid-template-columns: 1.6rem 1fr 1.6rem;
     height: fit-content;
     place-items: center;
     gap: 10px;
 }
-
 .home>* {
     grid-column: 2;
 }
-
 main.home {
     flex-grow: 1;
 }
-
 .home .full {
     grid-column: 1/-1;
 }
-
 .home h1 {
     font-family: Roboto, 'Times New Roman', Times, serif;
 }
-
 .home h2 {
     font-family: Roboto, 'Times New Roman', Times, serif;
 }
-
 .home ul{
     display: grid;
     place-items: center;
 }
-
 .home p {
     font-family: Roboto;
 }
