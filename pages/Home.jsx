@@ -8,7 +8,7 @@ export function Home() {
             <section className="home main-layout">
                 <h1>Welcome to the Best Notes and Email Page Ever!</h1>
                 <p>
-                    This platform was built by Yarin Bracha and Isaac levy,
+                    This platform was built by Yarin Bracha and Isaac levy
                 </p>
 
                 <section className="navigation">

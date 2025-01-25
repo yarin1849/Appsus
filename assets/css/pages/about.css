@@ -1,0 +1,12 @@
+.about-images img {
+    margin-top: 50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    font-family: roborto;
+}
+
+.about-images .images {
+    display: flex;
+    gap: 20px;
+}

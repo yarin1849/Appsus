@@ -66,7 +66,7 @@ export function NoteIndex() {
 
             <section className="note-main-content">
                 <section className="note-menu-filter">
-                    <button><img src="./assets/img/icons8-menu.svg" alt="" /></button>
+                    {/* <button><img src="./assets/img/icons8-menu.svg" alt="" /></button> */}
                     <NoteMenuFilter onSetFilterBy={onSetFilterByClick} />
                 </section>
                 <section className="note-edit">
