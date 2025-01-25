@@ -13,12 +13,14 @@
 /* Pages */
 @import './pages/home.css';
 @import url(./pages/note-header.css);
+@import url(./pages/about.css);
 
 /* @import './apps/note/pages/NoteIndex.css'; */
 
 /* @import './apps/mail/pages/MailIndex.css'; */
 
 /* Cmps */
+
 
 @import url(./cmps/modal.css);
 @import url(./cmps/note-list.css);

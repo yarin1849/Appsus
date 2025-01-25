@@ -15,7 +15,7 @@ import { UserMsg } from "./cmps/UserMsg.jsx"
 export function App() {
     return <Router>
         <section className="app">
-            <AppHeader />
+            {/* <AppHeader /> */}
             <main className="main-layout">
                 <Routes>
                     <Route path="/" element={<Home />} />

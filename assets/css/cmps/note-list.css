@@ -132,3 +132,11 @@
 .close-button:hover {
     background-color: #bbb;
 }
+
+.note-list li .note-prev-todo label {
+    text-decoration: none; /* Default style */
+}
+
+.note-list li .note-prev-todo label.active {
+    text-decoration: line-through; /* Add line-through for active todos */
+}
