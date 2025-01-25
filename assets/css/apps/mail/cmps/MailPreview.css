@@ -5,10 +5,9 @@
     gap: 12px;
 }
 
-.mail-info-container{
+.mail-info-container {
     display: flex;
     justify-content: space-between;
-
 }
 
 .mail-from {
@@ -23,7 +22,7 @@
 .mail-subject {
     font-weight: bold;
     text-align: left;
-    flex-shrink: 0; 
+    flex-shrink: 0;
     flex-grow: 1;
     white-space: nowrap;
     overflow: hidden;
@@ -31,7 +30,7 @@
 }
 
 .mail-body {
-    flex-shrink: 0; 
+    flex-shrink: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -47,5 +46,3 @@
     justify-self: end;
     margin-left: auto
 }
-
-

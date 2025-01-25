@@ -91,11 +91,9 @@ function _createMails() {
             _createMail(Date.now() - 5 * 24 * 60 * 60 * 1000, Date.now() - 5 * 24 * 60 * 60 * 1000, 'survey', 'Please take a moment to fill out our survey.', true, 'survey@example.com', 'user@appsus.com'),
             _createMail(Date.now() - 6 * 24 * 60 * 60 * 1000, Date.now() - 6 * 24 * 60 * 60 * 1000, 'project update', 'Here is the latest project update.', true, 'project@example.com', 'user@appsus.com'),
             _createMail(Date.now() - 8 * 24 * 60 * 60 * 1000, Date.now() - 10 * 24 * 60 * 60 * 1000, 'reminder', 'Just a friendly reminder!', true, 'friend@example.com', 'user@appsus.com'),
-            _createMail(Date.now() - 9 * 24 * 60 * 60 * 1000, Date.now() - 15 * 24 * 60 * 60 * 1000, 'thank you', 'Thank you for your support!', false, 'support@example.com', 'user@appsus.com'),
             _createMail(Date.now() - 4 * 24 * 60 * 60 * 1000, Date.now() - 40 * 24 * 60 * 60 * 1000, 'invitation', 'You’re invited to our event!', false, 'event@example.com', 'user@appsus.com'),
             _createMail(Date.now() - 7 * 24 * 60 * 60 * 1000, Date.now() - 70 * 24 * 60 * 60 * 1000, 'news', 'Breaking news from around the world.', false, 'news@example.com', 'user@appsus.com'),
             _createMail(Date.now() - 9 * 24 * 60 * 60 * 1000, Date.now() - 90 * 24 * 60 * 60 * 1000, 'thank you', 'Thank you for your support!', false, 'user@appsus.com', 'promo@example.com'),
-            _createMail(Date.now() - 9 * 24 * 60 * 60 * 1000, Date.now() - 120 * 24 * 60 * 60 * 1000, 'thank you', 'Thank you for your support!', false, 'user@appsus.com', 'friend@example.com'),
         ]
         storageService.saveToStorage(MAIL_KEY, mails)
     }
