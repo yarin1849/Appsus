@@ -1,10 +1,9 @@
 import { mailService } from "../services/mail.service.js"
-import { MailPreview } from "../cmps/MailPreview.jsx"
 import { utilService } from '../../../services/util.service.js'
 
 
 const { useEffect, useState } = React
-const { useParams, useNavigate, Link } = ReactRouterDOM
+const { useParams, Link } = ReactRouterDOM
 
 
 

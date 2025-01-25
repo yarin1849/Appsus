@@ -1,20 +1,15 @@
 import { mailService } from "../services/mail.service.js"
 import { showErrorMsg, showSuccessMsg } from "../../../services/event-bus.service.js"
 import { MailList } from "../cmps/MailList.jsx"
-import { MailCompose } from "../cmps/MailCompose.jsx"
-import { MailFilter } from "../cmps/MailFilter.jsx"
 import { MailMenuFilter } from "../cmps/MailMenuFilter.jsx"
 import { MailHeader } from "../cmps/MailHeader.jsx"
-import { MailPreview } from "../cmps/MailPreview.jsx"
 
-const { useSearchParams, Routes, Route, Navigate } = ReactRouterDOM
+const { useSearchParams } = ReactRouterDOM
 const { useState, useEffect } = React
 export function MailIndex() {
 
     const [mails, setMails] = useState(null)
-    const [isRead, setIsRead] = useState()
     const [unreadCount, setUnreadCount] = useState(0)
-    const [isComposeOpen, setIsComposeOpen] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
     const [filterBy, setFilterBy] = useState(mailService.getFilterFromSearchParams(searchParams))
@@ -104,7 +99,6 @@ export function MailIndex() {
             <MailHeader onCloseModal={onCloseModal} onToggleModal={onToggleModal} isOpen={isOpen} filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
             <section className="mail-main-content">
                 <section className="mail-menu-filter">
-                    {/* <button><img src="./assets/img/icons8-menu.svg" alt="" /></button> */}
                     <MailMenuFilter isMenuOpen={true} onSetFilterBy={onSetFilterByClick} activeFolder={filterBy.folder} unreadCount={unreadCount} />
                 </section>
                 <MailList mails={mails} handleIsRead={handleIsRead}
