@@ -10,3 +10,25 @@
     display: flex;
     gap: 20px;
 }
+
+.about-images {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-images h2 {
+    align-self: center;
+    font-family: roborto;
+}
+.about-images .images {
+    align-self: center;
+    display: flex;
+    gap: 150px;
+}
+.about-images img {
+    margin-top: 50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    font-family: roborto;
+}
